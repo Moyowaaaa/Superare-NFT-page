@@ -1,0 +1,41 @@
+.hero-section{
+    width: 10rem;
+   
+    padding: 5rem 4rem;
+    background-color: #07040D;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    height: max-content;
+    align-items: center;
+
+
+   &__hero-container{
+    margin-top: 2rem;
+    display: flex;
+    gap: 7rem;
+    align-items: center;
+
+
+    &--text-container{
+        width: max-content;
+       
+        height: max-content;
+        display: flex;
+        flex-direction: column;
+        gap:4rem;
+
+        h1{
+            width: 40rem;
+            line-height: 3rem ;
+        }
+
+        p{
+            width:50rem ;
+            line-height: 2rem ;
+        }
+       
+    }
+   }
+}

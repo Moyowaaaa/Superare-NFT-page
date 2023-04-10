@@ -1,0 +1,43 @@
+%title-2 {
+  font-size: 32px;
+  line-height: 0.7;
+  letter-spacing: calc(-0.015 * 32px);
+
+
+  @media screen and (min-width:1000px) {
+    font-size: calc(150vw / 1368 * 10);
+  }
+}
+
+
+.nav-regular{
+  font-family: 'circular-regular';
+  font-size: 1rem;
+}
+
+.md-text{
+  font-family: 'roboto-light';
+  font-size: 1.8rem;
+  line-height:30px ;
+}
+
+
+.regular-text{
+  font-family: 'roboto';
+  font-size:1.5rem
+}
+.sm-text{
+  font-family: 'circular-regular';
+  font-size: 1.3rem;
+  font-weight: 100;
+  line-height: 25px;
+}
+
+.regular-header{
+  font-family: 'roboto-medium';
+  font-size: 3rem;
+}
+
+
+//font family
+//size::after

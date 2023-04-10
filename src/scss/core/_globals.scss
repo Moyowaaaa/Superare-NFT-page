@@ -1,0 +1,30 @@
+html {
+
+
+ 
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+
+  @media screen and (min-width:1000px) {
+    font-size: calc(100vw / 1440 * 10);
+  }
+}
+
+// resets
+body {
+  font-family: "roboto", sans-serif;
+  background-color:  #1E1E1E;;
+  cursor: crosshair;
+}
+
+
+
+section{
+  // padding:4rem
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  display: none;
+
+}

@@ -1,0 +1,43 @@
+.faqSection{
+    padding: 10rem 4rem;
+    height:max-content;
+
+    background: url('../assets/images/wave.png');
+    color: white;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    &__container{
+        display: flex;
+        width: 100%;
+   
+        font-size: 55px;
+        font-weight: bold;
+        align-items: center;
+
+        &--text-container{
+            width: 50rem;
+            flex-basis: 50%;
+            h1{
+                width: 60%;
+            }
+        }
+
+        &--questions-container{
+            display: flex;
+            flex-direction: column;
+            gap:2rem;
+            flex-basis: 50%;
+         
+
+            &--question-container{
+                padding: 2rem ;
+                border: 1px solid white;
+                border-radius: 0.5rem;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+        }
+    }
+}
