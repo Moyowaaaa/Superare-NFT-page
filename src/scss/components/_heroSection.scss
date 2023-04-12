@@ -43,7 +43,7 @@
 
 @media screen and (max-width:485px) {
     .hero-section{
-        width: 100vw;
+        width: 100vw !important;
         padding: 1rem;
 
         &__hero-container{
