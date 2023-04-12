@@ -178,4 +178,28 @@
 
 @media screen and (max-width:485px) {
 
+  .showcaseSection{
+    padding: 6rem 1.2rem;;
+
+    &__showcase-container{
+
+
+      &--first, &--second, &--third {
+
+        &__title-container{
+          font-size: 1rem !important;
+          width: auto;
+          margin: 0 auto;
+        }
+        &__image-container{
+          
+width: 25rem;
+        }
+
+        &__desc-container{
+          width: 25rem;
+        }
+      }
+    }
+  }
 }

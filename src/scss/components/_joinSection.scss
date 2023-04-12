@@ -72,11 +72,25 @@
 @media screen and (max-width:485px) {
     .joinSection{
         // padding:10rem 30rem;
-        width: 100vh !important;
+        padding:0;
         box-sizing: border-box;
 
         &__container{
             flex-direction: column-reverse;
+
+            &--buttons-container{
+flex-direction: column;
+            }
+
+            &--text-container{
+                width: 25rem;
+
+                h1{
+                    font-size: 4rem;
+
+                }
+
+            }
         }
     }
 }

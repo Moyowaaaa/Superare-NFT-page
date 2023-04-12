@@ -41,3 +41,26 @@
         }
     }
 }
+
+@media screen and (max-width:485px) {
+    .faqSection{
+        padding:10rem 1.2rem;
+
+        &__container{
+            flex-direction: column;
+
+            &--text-container{
+                width: 25rem;
+                padding-bottom: 2rem;
+
+                h1{
+                    width: 100%;
+                    font-size: 4rem;
+                }
+           
+                
+            }
+        }
+
+    }
+}
