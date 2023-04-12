@@ -1,6 +1,6 @@
 .hero-section{
-    width: 10rem;
-   
+  
+
     padding: 5rem 4rem;
     background-color: #07040D;
     width: 100%;
@@ -38,4 +38,30 @@
        
     }
    }
+}
+
+
+@media screen and (max-width:485px) {
+    .hero-section{
+        width: 100vw;
+        padding: 1rem;
+
+        &__hero-container{
+            flex-direction: column;
+
+            &--text-container{
+                h1{
+                    width: 20rem;
+                    line-height: 3rem ;
+                    font-size: 2.5rem;
+                }
+        
+                p{
+                    width:20rem ;
+                    line-height: 2rem ;
+                    font-size: 1.2rem;
+                }
+            }
+        }
+    }
 }

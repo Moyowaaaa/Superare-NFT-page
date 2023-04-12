@@ -1,5 +1,5 @@
 .joinSection{
-    padding: 0 4rem;
+    padding: 0 8rem;
     padding-top: 12rem;
     height: max-content;
     background-color: #030106;
@@ -66,4 +66,17 @@
 
 
 
+}
+
+
+@media screen and (max-width:485px) {
+    .joinSection{
+        // padding:10rem 30rem;
+        width: 100vh !important;
+        box-sizing: border-box;
+
+        &__container{
+            flex-direction: column-reverse;
+        }
+    }
 }

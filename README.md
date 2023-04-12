@@ -11,7 +11,7 @@ yarn dev
 ```bash
 npm install
 
-npm run dev
+npm parcel src/index.html
 ```
 
 ### Or install yarn:

@@ -15,7 +15,7 @@
 
     &__main-container{
         width: 100%;
-        padding:1rem 4rem;
+        padding:1rem 10rem;
         height: 100%;
     
         display: flex;
@@ -29,8 +29,8 @@
             gap:4rem;
 
             h1{
-                width: 75%;
-                font-weight: 800;
+                width: 90%;
+            
             }
 
             p{
@@ -51,7 +51,7 @@
 
         &--clients{
             width: 10rem;
-            margin-left: 4rem;
+            margin-left: 10rem;
             position: absolute;
             bottom:10rem;
             display: flex;
@@ -85,6 +85,46 @@ img{
     object-fit:cover;
     border-radius:1rem ;
 }
+        }
+    }
+}
+
+
+@media screen and (max-width:485px) {
+    .titleSection{
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+
+        &__main-container{
+            padding:0 1.5rem;
+
+            &--text-content{
+                font-size: 4rem !important;
+
+                h1{
+                    width: 100%;
+                    font-size: 3.5rem;
+                
+                }
+    
+                p{
+                    width: 100%;
+                    font-size: 1.2rem;
+                }
+    
+
+            }
+
+            
+        &--clients{
+            bottom:5rem;
+            margin-left: 1.5rem;
+        }
+
+            &--image-container{
+                display: none;
+            }
         }
     }
 }
