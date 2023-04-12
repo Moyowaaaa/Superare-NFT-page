@@ -428,7 +428,7 @@
     "@parcel/utils" "2.8.3"
     "posthtml" "^0.16.4"
 
-"@parcel/plugin@^2.0.0", "@parcel/plugin@^2.0.0-beta.1", "@parcel/plugin@^2.1.1", "@parcel/plugin@2.8.3":
+"@parcel/plugin@^2.0.0", "@parcel/plugin@^2.0.0-beta.1", "@parcel/plugin@2.8.3":
   "integrity" "sha512-jZ6mnsS4D9X9GaNnvrixDQwlUQJCohDX2hGyM0U0bY2NWU8Km97SjtoCpWjq+XBCx/gpC4g58+fk9VQeZq2vlw=="
   "resolved" "https://registry.npmjs.org/@parcel/plugin/-/plugin-2.8.3.tgz"
   "version" "2.8.3"
@@ -498,7 +498,7 @@
     "@parcel/utils" "2.8.3"
     "nullthrows" "^1.1.1"
 
-"@parcel/source-map@^2.0.0", "@parcel/source-map@^2.1.1":
+"@parcel/source-map@^2.1.1":
   "integrity" "sha512-Ejx1P/mj+kMjQb8/y5XxDUn4reGdr+WyKYloBljpppUy8gs42T+BNoEOuRYqDVdgPc6NxduzIDoJS9pOFfV5Ew=="
   "resolved" "https://registry.npmjs.org/@parcel/source-map/-/source-map-2.1.1.tgz"
   "version" "2.1.1"
@@ -609,7 +609,7 @@
     "posthtml-render" "^3.0.0"
     "semver" "^5.7.1"
 
-"@parcel/transformer-pug@2.0.0":
+"@parcel/transformer-pug@^2.0.0":
   "integrity" "sha512-OsSWa5O8WPTFLwLF2h69Bew9Y/r2HlAPaPP+VvtriroAgYElJi5nHqK1uDlKGsyeqTeC/QWeeWSB+jiHk1UPaQ=="
   "resolved" "https://registry.npmjs.org/@parcel/transformer-pug/-/transformer-pug-2.0.0.tgz"
   "version" "2.0.0"
@@ -633,13 +633,13 @@
     "@parcel/utils" "2.8.3"
     "react-refresh" "^0.9.0"
 
-"@parcel/transformer-sass@^2.1.1":
-  "integrity" "sha512-7aIZFZ645OoMmji3hnOgX5JS/hSmnRi8Re5fzZ790dojsWLf2wGmSzSURG4uh3D9kf/BpQSmO/74aaaxbxMA7A=="
-  "resolved" "https://registry.npmjs.org/@parcel/transformer-sass/-/transformer-sass-2.1.1.tgz"
-  "version" "2.1.1"
+"@parcel/transformer-sass@^2.8.3":
+  "integrity" "sha512-ak196rjvXdsBOGi5aTkBEKv6i4LKQgOkHuaKEjeT8g2a3CU6Z36J+j2GbZzsznfws/hH+CRTf8bAsbkxtKlkjQ=="
+  "resolved" "https://registry.npmjs.org/@parcel/transformer-sass/-/transformer-sass-2.8.3.tgz"
+  "version" "2.8.3"
   dependencies:
-    "@parcel/plugin" "^2.1.1"
-    "@parcel/source-map" "^2.0.0"
+    "@parcel/plugin" "2.8.3"
+    "@parcel/source-map" "^2.1.1"
     "sass" "^1.38.0"
 
 "@parcel/transformer-svg@2.8.3":
