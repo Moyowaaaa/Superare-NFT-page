@@ -9,9 +9,9 @@
     flex-direction: column;
     padding-top: 2rem;
     background-size: cover;
-    max-width: 150rem;
+    // max-width: 150rem;
     color: white;
-    background-attachment: fixed;
+    // background-attachment: fixed;
   
 
     &__main-container{
@@ -24,7 +24,7 @@
         justify-content: space-between;
 
         &--text-content{
-            font-size: 7rem;
+            // font-size: 7rem;
             display: flex;
             flex-direction: column;
             gap:4rem;
@@ -95,13 +95,15 @@ img{
     .titleSection{
         width: 100%;
         max-width: 100%;
-        box-sizing: border-box;
-
+        // box-sizing: border-box;
+        
         &__main-container{
-            padding:0 1.5rem;
+            padding:0  ;
+            padding-top: 1rem;
+            padding-left: 1rem;
 
             &--text-content{
-                font-size: 4rem !important;
+                // font-size: 4rem !important;
 
                 h1{
                     width: 100%;
