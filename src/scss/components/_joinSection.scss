@@ -79,6 +79,18 @@
         &__container{
             flex-direction: column-reverse;
 
+            &--image-container{
+              
+                width:35rem;
+                height: 100%;
+
+                img{
+                    height: 100%;
+                    width: 100%;
+                    object-fit: contain;
+                }
+            }
+
             &--buttons-container{
 flex-direction: column;
             }
@@ -87,6 +99,7 @@ flex-direction: column;
                 width: 35rem;
                 padding-top: 5rem;
                 padding-left: 2rem;
+                
 
                 h1{
                     font-size: 4rem;
