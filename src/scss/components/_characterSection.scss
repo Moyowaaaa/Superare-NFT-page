@@ -64,3 +64,19 @@
 }
 
 
+@media screen and (max-width:485px) {
+    .characterSection{
+        &__characters-container{padding: 0;
+            justify-content: center;
+            flex-wrap: wrap;   
+            
+
+            
+
+            &:nth-child(2){
+                display: none;
+            }
+        }
+    }
+}
+

@@ -5,6 +5,7 @@
     flex-direction: column;
     background-color: #030106;
     color:white;
+    box-sizing: border-box;
 
     &__top-container{
         display: flex;
@@ -36,4 +37,27 @@
         }
     }
 
+}
+
+@media screen and (max-width:485px) {
+    .footer{
+    
+        padding: 0;
+
+        &__top-container{
+            padding-top: 6rem;
+            padding-left: 2rem;
+            align-items: center;
+            &--links{
+             
+                flex-wrap: wrap;
+                
+              
+            }
+        }
+        &__bottom-container{
+            flex-direction: column;
+        }
+        
+    }
 }
