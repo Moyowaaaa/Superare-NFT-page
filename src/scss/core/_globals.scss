@@ -4,6 +4,8 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
 
+  font-size: calc(400vw / 1440 * 10);
+
   @media screen and (min-width:1000px) {
     font-size: calc(100vw / 1440 * 10);
   }
