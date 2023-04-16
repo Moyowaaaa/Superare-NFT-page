@@ -10,17 +10,26 @@
     height: max-content;
     align-items: center;
 
+    box-sizing: border-box;
+    padding: 1rem 10rem;
+  
+
 
    &__hero-container{
+    width: 100%;
     margin-top: 2rem;
     display: flex;
     gap: 7rem;
     align-items: center;
+ 
+    height: max-content;
+   
+    justify-content: center;
 
 
     &--text-container{
         width: max-content;
-       
+       flex-basis: 50%;
         height: max-content;
         display: flex;
         flex-direction: column;
@@ -37,6 +46,15 @@
         }
        
     }
+
+    &--image{
+  
+        
+
+        img{
+            width: 100%;
+        }
+    }
    }
 }
 
@@ -44,30 +62,40 @@
 @media screen and (max-width:485px) {
     .hero-section{
         width: 100% !important;
-    
+        padding: 0;
         // padding:0 1rem;
         padding:0;
-        padding-top: 1rem;
-        padding-left: 1rem;
+      
 
         &__hero-container{
             flex-direction: column;
             padding:0;
             margin:0 !important;
-        
+          
+
+
+            &--image{
+                width: 100%;
+            }
+
             &--text-container{
+                flex-basis: 100%;
+                
+
                 h1{
-                    width: 20rem;
+                    width: 35rem;
                     line-height: 3rem ;
-                    font-size: 2.5rem;
+                    font-size: 3.5rem;
                 }
         
                 p{
-                    width:20rem ;
+                    width:32rem ;
+                    font-size: 1.6rem;
                     line-height: 2rem ;
-                    font-size: 1.2rem;
                 }
             }
+        
+        
         }
     }
 }

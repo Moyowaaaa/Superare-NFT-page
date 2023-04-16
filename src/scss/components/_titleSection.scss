@@ -12,14 +12,14 @@
     // max-width: 150rem;
     color: white;
     // background-attachment: fixed;
-    border: 2px solid red;
+ 
     box-sizing: border-box;
     padding: 1rem 10rem;
   
 
     &__main-container{
         width: 100%;
-        border:2px solid blue;
+       
         min-height: 70rem;
     
         display: flex;
@@ -31,7 +31,7 @@
             display: flex;
             flex-direction: column;
             gap:4rem;
-            border: 2px solid blue;
+    
             flex-basis: 70%;
 
             h1{
@@ -107,7 +107,7 @@ img{
 
             &--text-content{
                 flex-basis: 100%;
-
+                padding:0 1rem;
                 p{
                     width: 100%;
                 }
@@ -116,6 +116,8 @@ img{
             &--clients{
                 margin-left: 1rem;
             position: relative;
+            bottom: 10rem;
+            display: none;
             }
 
             &--image-container{

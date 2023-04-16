@@ -1,5 +1,5 @@
 .joinSection{
-    padding: 0 8rem;
+   
     padding-top: 12rem;
     height: max-content;
     background-color: #030106;
@@ -10,6 +10,9 @@
    
     // background: url('../assets/images/wave.png');
     color: white;
+
+    box-sizing: border-box;
+    padding: 1rem 10rem;
 
     &__container{
         display: flex;
@@ -71,9 +74,7 @@
 
 @media screen and (max-width:485px) {
     .joinSection{
-        // padding:10rem 30rem;
-        padding:0;
-        box-sizing: border-box;
+      height: 100vh;
 
         &__container{
             flex-direction: column-reverse;
@@ -83,7 +84,9 @@ flex-direction: column;
             }
 
             &--text-container{
-                width: 25rem;
+                width: 35rem;
+                padding-top: 5rem;
+                padding-left: 2rem;
 
                 h1{
                     font-size: 4rem;
