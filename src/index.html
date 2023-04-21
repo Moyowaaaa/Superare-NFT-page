@@ -10,7 +10,7 @@
   </head>
 
   <body>
-    <div  class="scroll-container" id="scroll-container" data-scroll-container>
+    <div  class="container scroll-container" id="scroll-container" data-scroll-container>
 
       <section class="titleSection">
 
@@ -297,43 +297,45 @@
     </div>
 
   
-    <script src="./ts/main.ts" type="module"></script>
+    <!-- <script src="./ts/main.ts" type="module"></script> -->
     <script src="./js/locomotive-scroll.min.js"></script>
 
 
+    <!-- <script src="./ts/main.ts" type="module"></script>     -->
+
     <script>
-      gsap.registerPlugin(ScrollTrigger);
-    
-      const locoScroll = new LocomotiveScroll({
-      el: document.querySelector(".smooth-scroll"),
-      smooth: true
-    });
-    // each time Locomotive Scroll updates, tell ScrollTrigger to update too (sync positioning)
-    locoScroll.on("scroll", ScrollTrigger.update);
-    
-    // tell ScrollTrigger to use these proxy methods for the ".smooth-scroll" element since Locomotive Scroll is hijacking things
-    ScrollTrigger.scrollerProxy(".smooth-scroll", {
-      scrollTop(value) {
-        //vertical scrolling
-        return arguments.length ? locoScroll.scrollTo(value, {duration: 0, disableLerp: true}) : locoScroll.scroll.instance.scroll.y;
-      }, // we don't have to define a scrollLeft because we're only scrolling vertically.
-      getBoundingClientRect() {
-        return {top: 0, left: 0, width: window.innerWidth, height: window.innerHeight};
-      },
-      // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
-      pinType: document.querySelector(".smooth-scroll").style.transform ? "transform" : "fixed"
-    });
-    
-    // each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll. 
-    ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
-    ScrollTrigger.defaults({ scroller: ".smooth-scroll" });
+      const scroller = new LocomotiveScroll({
+    el: document.querySelector('[data-scroll-container]'),
+    smooth: true
+})
+
+gsap.registerPlugin(ScrollTrigger)
 
 
-    
-ScrollTrigger.refresh();
-  
+scroller.on('scroll', ScrollTrigger.update)
 
-</script>    
+ScrollTrigger.scrollerProxy(
+    '.container', {
+        scrollTop(value) {
+            return arguments.length ?
+            scroller.scrollTo(value, 0, 0) :
+            scroller.scroll.instance.scroll.y
+        },
+        getBoundingClientRect() {
+            return {
+                left: 0, top: 0, 
+                width: window.innerWidth,
+                height: window.innerHeight
+            }
+        }
+    }
+)
+ScrollTrigger.addEventListener('refresh', () => scroller.update())
+
+
+ScrollTrigger.refresh()
+
+    </script>
 
   </body>
 </html>
