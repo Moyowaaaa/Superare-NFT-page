@@ -197,7 +197,7 @@
     "@parcel/transformer-react-refresh-wrap" "2.8.3"
     "@parcel/transformer-svg" "2.8.3"
 
-"@parcel/core@^2.8.3", "@parcel/core@2.8.3":
+"@parcel/core@2.8.3":
   "integrity" "sha512-Euf/un4ZAiClnlUXqPB9phQlKbveU+2CotZv7m7i+qkgvFn5nAGnrV4h1OzQU42j9dpgOxWi7AttUDMrvkbhCQ=="
   "resolved" "https://registry.npmjs.org/@parcel/core/-/core-2.8.3.tgz"
   "version" "2.8.3"
@@ -703,6 +703,11 @@
     "@parcel/utils" "2.8.3"
     "chrome-trace-event" "^1.0.2"
     "nullthrows" "^1.1.1"
+
+"@studio-freight/lenis@^1.0.11":
+  "integrity" "sha512-N4VpYVXQS0BhbExl9CADyPp3vmRb2p4JME+exdguT/OrYTprkUv13BQODtryR/QebWS36n/NKgic5lVBMMa4+A=="
+  "resolved" "https://registry.npmjs.org/@studio-freight/lenis/-/lenis-1.0.11.tgz"
+  "version" "1.0.11"
 
 "@swc/helpers@^0.4.12":
   "integrity" "sha512-4C7nX/dvpzB7za4Ql9K81xK3HPxCpHMgwTZVyf+9JQ6VUbn9jjZVN7/Nkdz/Ugzs2CSjqnL/UPXroiVBVHUWUw=="
@@ -1760,7 +1765,12 @@
   "resolved" "https://registry.npmjs.org/source-map/-/source-map-0.6.1.tgz"
   "version" "0.6.1"
 
-"srcset@4", "srcset@4.0.0":
+"splitting@^1.0.6":
+  "integrity" "sha512-2hYicS/hTy1MgjTi4ST6B298uoLSx854VfTf0FeMmCeE6OiZjEixTOGPLqnNzSaM/y3jwoEYj5pmDzYFwRInPw=="
+  "resolved" "https://registry.npmjs.org/splitting/-/splitting-1.0.6.tgz"
+  "version" "1.0.6"
+
+"srcset@4":
   "integrity" "sha512-wvLeHgcVHKO8Sc/H/5lkGreJQVeYMm9rlmt8PuR1xE31rIuXhuzznUUqAt8MqLhB3MqJdFzlNAfpcWnxiFUcPw=="
   "resolved" "https://registry.npmjs.org/srcset/-/srcset-4.0.0.tgz"
   "version" "4.0.0"
@@ -1789,7 +1799,7 @@
   "resolved" "https://registry.npmjs.org/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz"
   "version" "1.0.0"
 
-"svgo@^2.4.0", "svgo@^2.8.0":
+"svgo@^2.4.0":
   "integrity" "sha512-+N/Q9kV1+F+UeWYoSiULYo4xYSDQlTgb+ayMobAXPwMnLvop7oxKMo9OzIrX5x3eS4L4f2UHhc9axXwY8DpChg=="
   "resolved" "https://registry.npmjs.org/svgo/-/svgo-2.8.0.tgz"
   "version" "2.8.0"
@@ -1807,7 +1817,7 @@
   "resolved" "https://registry.npmjs.org/term-size/-/term-size-2.2.1.tgz"
   "version" "2.2.1"
 
-"terser@^5.10.0", "terser@^5.2.0":
+"terser@^5.2.0":
   "integrity" "sha512-HPa/FdTB9XGI2H1/keLFZHxl6WNvAI4YalHGtDQTlMnJcoqSab1UwL4l1hGEhs6/GmLHBZIg/YgB++jcbzoOEg=="
   "resolved" "https://registry.npmjs.org/terser/-/terser-5.16.9.tgz"
   "version" "5.16.9"

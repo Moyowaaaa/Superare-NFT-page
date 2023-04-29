@@ -19,6 +19,36 @@ body {
   
 }
 
+.texttt{
+  opacity: 0.2;
+}
+
+
+.button-effect {
+  background: #228be6;
+  width: 150%;
+  height: 200%;
+  border-radius: 60%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
+
+.button-content {
+  position:relative;
+  z-index: 2;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  display:none
+}
+
+
+
+
 
 
 section{
@@ -30,8 +60,8 @@ section{
   object-fit: contain;
 }
 
-::-webkit-scrollbar {
-  width: 6px;
-  display: none;
+// ::-webkit-scrollbar {
+//   width: 6px;
+//   // display: none;
 
-}
+// }
