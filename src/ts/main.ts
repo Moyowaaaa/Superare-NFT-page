@@ -16,9 +16,9 @@ console.log(titleSectionHead)
 
 const heroSectionTitle = document.querySelectorAll('.regular-header[data-splitting][data-effect15]');
 const heroSectionText = document.querySelectorAll('.regular-text[data-splitting][data-effect16]');
-
-
 const heroSectionTextContainer = document.querySelectorAll('.hero-section__hero-container--text-container')
+const faqQuestionsContainer = document.querySelector('.faqSection__container--questions-container')
+
 console.log(heroSectionTextContainer)
 
 let lenis: Lenis;
@@ -105,6 +105,7 @@ document.body.style.overflow = 'hidden';
         opacity: 0   
     }, { display:"block", opacity:1, ease:"none",duration:0.1, onComplete:() =>
     {
+        navbarAnimations()
         titleSectionAnimations(),
         heroSectionAnimations()
     
@@ -125,6 +126,22 @@ document.body.style.overflow = 'hidden';
     },35)
 })
 
+
+const navbarAnimations = () => {
+    const navTl = gsap.timeline()
+    
+
+    navTl.fromTo('.navbar-logo', {opacity:0},{ y: 0, opacity: 1, duration:1.5, clipPath: "polygon(0 100%, 100% 100%, 100% 0, 0 0)" },'<0.1')
+
+    navTl.from('.nav-regular h3', {
+        x:10,
+        opacity:0,
+        ease:"power3.inOut",
+        stagger:0.04
+    }, "<0.5")
+
+    navTl.from('.navbar__button', {opacity:0})
+}
 
 const titleSectionAnimations = () => {
     document.body.style.position = '';
@@ -205,11 +222,20 @@ document.body.style.overflow = '';
             }
         });
     
-    });
-    
-    
-        
-        
+    });    
     }
 
 
+    // const faqSectionTl = gsap.timeline({
+    //     scrollTrigger:{
+    //         trigger:'faqSection__container--questions-container',
+    //         start:"top +=20",
+    //         scrub:true
+    //     }
+    // })
+
+    // faqSectionTl.from('.faqSection__container--questions-container', {
+    //     opacity:0,
+    //     y:-100,
+    //     ease:"power3.inOut"
+    // })
