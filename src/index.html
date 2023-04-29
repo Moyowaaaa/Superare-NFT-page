@@ -10,9 +10,43 @@
   </head>
 
   <body>
-    <div  class="container scroll-container" id="scroll-container" data-scroll-container>
 
-      <section class="titleSection">
+    <div class="preloader">
+
+
+      <div class="preloader__imagescontainer">
+
+      <div class="preloader__imagescontainer--imagecontainer" id="loadImage1">
+        <img src="./assets/images/titleNFT.png"/>
+        </div>  
+
+         <div class="preloader__imagescontainer--imagecontainer" id="loadImage2">
+         <img src="./assets/images/showcase1.png" />
+          </div>  
+
+
+          <div class="preloader__imagescontainer--imagecontainer" id="loadImage3">
+            <img src="./assets/images/showcase2.png" />
+            </div>  
+
+
+           <div class="preloader__imagescontainer--imagecontainer" id="loadImage4">
+              <img src="./assets/images/showcase3.png" />
+              </div>  
+
+        
+      </div>
+
+   
+
+      <div class="preloader__count count">
+        
+      </div>
+    </div>
+
+    <div data-scroll-container class="container">
+
+      <section class="titleSection" >
 
         <div class="navbar">
           <h3>
@@ -38,7 +72,7 @@
 
         <div class="titleSection__main-container">
            <div class="titleSection__main-container--text-content">
-  <h1 class="main-header">Discover and collect
+  <h1 class="main-header" data-splitting>Discover and collect
      <span style="color:#e75c99">super rare</span> NFTs</h1>
   
   <p class="md-text">Digital marketplace for crypto collectibles and NFTs. Buy, sell, and discover exclusive digital assets today.</p>
@@ -62,25 +96,25 @@
           </div>
     
       </div>
-      <section class="hero-section" data-scroll-section>
+      <section class="hero-section" >
 
 
         <div class="hero-section__hero-container">
           
-          <div class="hero-section__hero-container--image">
+          <div class="hero-section__hero-container--image" id="heroImage">
             <img src="./assets/images/Spline 5.png"/>
           </div>
 
           <div class="hero-section__hero-container--text-container">
-            <h1 class="regular-header">A new wave of collectibles is about to hit the blockchain.</h1>
-            <p class="regular-text">Characterised by soft lighting, vintage colour schemes and quirky costumes, these generative 3D TinyFaces are the addition to your NFT collection you’ve been waiting for.</p>
+            <h1 class="regular-header" data-splitting data-effect15>A new wave of collectibles is about to hit the blockchain.</h1>
+            <p class="regular-text" data-splitting data-effect16>Characterised by soft lighting, vintage colour schemes and quirky costumes, these generative 3D TinyFaces are the addition to your NFT collection you’ve been waiting for.</p>
             </div>  
   
 
         </div>
         </section>
 
-        <section class="showcaseSection" data-scroll-section>
+        <section class="showcaseSection" >
           <div class="showcaseSection__showcase-container">
 
               
@@ -133,7 +167,7 @@
           </section>  
 
 
-          <section class="characterSection" data-scroll-section>
+          <section class="characterSection" >
             <div class="characterSection__title">
               <h1 class="section-header">Find your Favorite Character</h1>
               </div>  
@@ -187,7 +221,7 @@
                 
               </div>
 
-              <section class="faqSection" data-scroll-section>
+              <section class="faqSection" >
                 <div class="faqSection__container">
                   <div class="faqSection__container--text-container">
                     <h1 class="section-header">Your questions, answered.</h1>
@@ -231,9 +265,10 @@
           </section>
     
 
+          
 
 
-          <section class="joinSection" data-scroll-section>
+          <section class="joinSection" >
             
               <div class="joinSection__container">
                 <div class="joinSection__container--text-container">
@@ -262,7 +297,7 @@
 
 
       
-      <footer class="footer" data-scroll-section>
+      <footer class="footer" >
         <div class="footer__top-container">
           <h1 class="md-text">SUPERARE</h1>
   
@@ -299,45 +334,46 @@
     </div>
 
   
-    <!-- <script src="./ts/main.ts" type="module"></script> -->
-    <script src="./js/locomotive-scroll.min.js"></script>
+    <script src="./ts/main.ts" type="module"></script>
+    <!-- <script src="./js/locomotive-scroll.min.js"></script>
 
-
-    <!-- <script src="./ts/main.ts" type="module"></script>     -->
-
-    <script>
-      const scroller = new LocomotiveScroll({
-    el: document.querySelector('[data-scroll-container]'),
-    smooth: true
-})
-
-gsap.registerPlugin(ScrollTrigger)
-
-
-scroller.on('scroll', ScrollTrigger.update)
-
-ScrollTrigger.scrollerProxy(
-    '.container', {
-        scrollTop(value) {
-            return arguments.length ?
-            scroller.scrollTo(value, 0, 0) :
-            scroller.scroll.instance.scroll.y
-        },
-        getBoundingClientRect() {
-            return {
-                left: 0, top: 0, 
-                width: window.innerWidth,
-                height: window.innerHeight
+    <script> 
+    const scroller = new LocomotiveScroll({
+        el: document.querySelector('[data-scroll-container]'),
+        smooth: true
+    })
+    
+    gsap.registerPlugin(ScrollTrigger)
+    
+    
+    scroller.on('scroll', ScrollTrigger.update)
+    
+    ScrollTrigger.scrollerProxy(
+        '.container', {
+            scrollTop(value) {
+                return arguments.length ?
+                scroller.scrollTo(value, 0, 0) :
+                scroller.scroll.instance.scroll.y
+            },
+            getBoundingClientRect() {
+                return {
+                    left: 0, top: 0, 
+                    width: window.innerWidth,
+                    height: window.innerHeight
+                }
             }
         }
-    }
-)
-ScrollTrigger.addEventListener('refresh', () => scroller.update())
+    )
 
 
-ScrollTrigger.refresh()
 
-    </script>
+    
+  
+    ScrollTrigger.addEventListener('refresh', () => scroller.update())
+    
+    
+    ScrollTrigger.refresh() -->
+    <!-- </script> -->
 
   </body>
 </html>

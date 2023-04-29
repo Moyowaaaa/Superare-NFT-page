@@ -21,8 +21,10 @@
     "sass": "^1.26.8"
   },
   "dependencies": {
+    "@studio-freight/lenis": "^1.0.11",
     "gsap": "^3.7.1",
     "locomotive-scroll": "^4.1.4",
+    "splitting": "^1.0.6",
     "typescript": "^5.0.4"
   }
 }

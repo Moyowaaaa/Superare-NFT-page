@@ -6,10 +6,14 @@
 @import "core/variables";
 @import "core/fonts";
 @import "core/globals";
+@import "core/locomotive";
+
 
 @import "shared/fonts";
 @import "shared/links";
 
+
+@import "components/preloader";
 @import "components/nav";
 @import "components/titleSection";
 @import "components/heroSection";
@@ -18,6 +22,8 @@
 @import "components/faqSectionl";
 @import "components/joinSection";
 @import "components/footer";
+@import "components/loco.scss";
+
 
 @import "pages/home";
 
