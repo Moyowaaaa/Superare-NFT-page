@@ -75,10 +75,10 @@
   <h1 class="main-header" data-splitting>Discover and collect
      <span style="color:#e75c99">super rare</span> NFTs</h1>
   
-  <p class="md-text">Digital marketplace for crypto collectibles and NFTs. Buy, sell, and discover exclusive digital assets today.</p>
+  <p class="md-text titleSection-text">Digital marketplace for crypto collectibles and NFTs. Buy, sell, and discover exclusive digital assets today.</p>
   
   
-  <button class="titleSection__main-container--text-content--button btn-grad">
+  <button class="titleSection__main-container--text-content--button btn-grad titleSection-button">
     Buy now
   </button>
           </div>
@@ -90,7 +90,7 @@
 
           </div>  
 
-          <div class="titleSection__main-container--clients">
+          <div class="titleSection__main-container--clients titleSection-clients">
             <img src="./assets/images/webflow.svg"/>
             <img src="./assets/images/relume.svg" />
           </div>
@@ -120,7 +120,7 @@
               
           <div class="showcaseSection__showcase-container--first">
             <div class="showcaseSection__showcase-container--first__title-container">
-              <h1 class="main-subheader" data-splitting>Thousands of unique NFTs</h1>
+              <h1 class="main-subheader" data-splitting id="first">Thousands of unique NFTs</h1>
             </div>
 
             <div class="showcaseSection__showcase-container--first__image-container">
@@ -135,7 +135,7 @@
 
             <div class="showcaseSection__showcase-container--second">
               <div class="showcaseSection__showcase-container--first__title-container">
-                <h1 class="main-subheader" data-splitting>Secure the most rare</h1>
+                <h1 class="main-subheader" data-splitting id="first">Secure the most rare</h1>
               </div>
     
               <div class="showcaseSection__showcase-container--first__image-container">
@@ -149,7 +149,7 @@
 
             <div class="showcaseSection__showcase-container--third">
               <div class="showcaseSection__showcase-container--first__title-container">
-                <h1 class="main-subheader" data-splitting>Our environmental impact matters to us.</h1>
+                <h1 class="main-subheader" data-splitting id="first">Our environmental impact matters to us.</h1>
               </div>
     
               <div class="showcaseSection__showcase-container--first__image-container">
@@ -314,7 +314,7 @@
   
         <div class="footer__bottom-container">
   
-          <h1>2022 Superare. All right reserved.</h1>
+          <h1><span id="year"></span> Superare. All right reserved.</h1>
   
           <div class="footer__bottom-container--links">
             <h1 class="nav-regular">Privacy Policy</h1>
@@ -335,45 +335,7 @@
 
   
     <script src="./ts/main.ts" type="module"></script>
-    <!-- <script src="./js/locomotive-scroll.min.js"></script>
 
-    <script> 
-    const scroller = new LocomotiveScroll({
-        el: document.querySelector('[data-scroll-container]'),
-        smooth: true
-    })
-    
-    gsap.registerPlugin(ScrollTrigger)
-    
-    
-    scroller.on('scroll', ScrollTrigger.update)
-    
-    ScrollTrigger.scrollerProxy(
-        '.container', {
-            scrollTop(value) {
-                return arguments.length ?
-                scroller.scrollTo(value, 0, 0) :
-                scroller.scroll.instance.scroll.y
-            },
-            getBoundingClientRect() {
-                return {
-                    left: 0, top: 0, 
-                    width: window.innerWidth,
-                    height: window.innerHeight
-                }
-            }
-        }
-    )
-
-
-
-    
-  
-    ScrollTrigger.addEventListener('refresh', () => scroller.update())
-    
-    
-    ScrollTrigger.refresh() -->
-    <!-- </script> -->
 
   </body>
 </html>

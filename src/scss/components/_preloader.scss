@@ -36,7 +36,7 @@
 
     &__count{
         font-size: 10vw;
-        font-weight: 800;
+        font-weight: 400;
         color: white;
         position:relative;
         top: 75%;
@@ -48,6 +48,11 @@
 
 @media screen and (max-width:485px) {
     .preloader{
+        &__count{
+            top:-5%;
+
+            font-size:10vw
+        }
         width: 100vw;
         &__imagescontainer{
             display: flex;
