@@ -1,0 +1,47 @@
+.btn-grad{
+    padding: 1.5rem 4rem;
+    outline: none;
+    border: none;
+       background: linear-gradient(90deg, #E85C99 0%, #A53DE2 110.61%, #FF3C5F 155.21%);
+box-shadow: 4px 2px 0px #F8F8F8;
+border-radius: 5px;
+color: white;
+width: max-content;
+font-family: 'circular-regular';
+
+&:hover {
+    transition: 0.5s;
+    box-shadow: 6px 3px 0 transparent;
+    background: linear-gradient(150deg,  #A53DE2 110.61%, #FF3C5F 155.21%);
+    cursor: pointer;
+    color:white;
+    scale:1.1
+}
+
+
+}
+
+
+.btn-border{
+    outline: none;
+    border: none;
+    background: transparent;
+    color:white;
+    border-radius:5px;
+    border: 2px solid #A53DE2;
+    padding: 1.5rem 4rem;
+    transition: 0.25s;
+    font-family: 'circular-regular';
+
+
+    &:hover,
+  &:focus {
+    // background-color: adjust-hue($color1, 80deg);
+    box-shadow: inset 20rem 0 0 0 adjust-hue(#E85C99, 10deg);
+    color: black;
+    transition: 0.60s;
+    cursor: pointer;
+    border:2px solid #E85C99
+  }
+
+}

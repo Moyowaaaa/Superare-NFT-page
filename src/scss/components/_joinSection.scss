@@ -1,3 +1,6 @@
+$color1: #FF3C5F;
+
+
 .joinSection{
    
     padding-top: 12rem;
@@ -7,6 +10,8 @@
     background-repeat: no-repeat;
     // background-position-x:10rem ;
     background-position-x: center;
+    min-height: 20rem;
+    
    
     // background: url('../assets/images/wave.png');
     color: white;
@@ -19,31 +24,14 @@
         justify-content: space-between;
         align-items: center;
 
+
         &--buttons-container{
             display: flex;
             width: max-content;
             gap:2rem;
 
-            .button1{
-                padding: 1.5rem 4rem;
-             outline: none;
-             border: none;
-                background: linear-gradient(90deg, #E85C99 0%, #A53DE2 110.61%, #FF3C5F 155.21%);
-        box-shadow: 4px 2px 0px #F8F8F8;
-        border-radius: 5px;
-        color: white;
-        width: max-content;
-            }
+          
 
-            .button2{
-                outline: none;
-                border: none;
-                background: transparent;
-                color:white;
-                border-radius:5px;
-                border: 2px solid #A53DE2;
-                padding: 1.5rem 4rem;
-            }
         }
         
 

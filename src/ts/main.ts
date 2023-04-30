@@ -6,20 +6,40 @@ import "splitting/dist/splitting.css";
 import "splitting/dist/splitting-cells.css";
 import Splitting from "splitting";
 
+import showcaseImageOne from '../assets/images/showcase1.png'
+import showcaseImageTwo from '../assets/images/showcase2.png'
+import showcaseImageThree from '../assets/images/showcase3.png'
+import polySansBold from '../assets/fonts/PolySans-Bold.ttf'
+import circularBold from '../assets/fonts/CircularStd-Bold.ttf'
+import circular from '../assets/fonts/CircularStd-Medium.ttf'
+import robotoLight from '../assets/fonts/Roboto-Light.ttf'
+import polysans from '../assets/fonts/PolySans.ttf'
+import polysansMedium from '../assets/fonts/PolySans-Bold.ttf'
+import roboto from '../assets/fonts/Roboto-Regular.ttf'
 
+
+
+var assestsLoaded = false
+
+   
+    
+
+    
+
+var viewport = window.innerWidth;
+var mobile = 480;
 
 
 Splitting();
 const titleSectionHead = document.querySelectorAll('.main-header[data-splitting]')
 
-console.log(titleSectionHead)
 
 const heroSectionTitle = document.querySelectorAll('.regular-header[data-splitting][data-effect15]');
 const heroSectionText = document.querySelectorAll('.regular-text[data-splitting][data-effect16]');
 const heroSectionTextContainer = document.querySelectorAll('.hero-section__hero-container--text-container')
 const faqQuestionsContainer = document.querySelector('.faqSection__container--questions-container')
 
-console.log(heroSectionTextContainer)
+
 
 let lenis: Lenis;
 
@@ -42,9 +62,30 @@ requestAnimationFrame(scrollFn);
 //Preloader 
 
 window.addEventListener('load', () => {
-    document.body.style.position = 'fixed';
+document.body.style.position = 'fixed';
 document.body.style.overflow = 'hidden';
-    const loaderTl = gsap.timeline()
+
+
+const promises:any = []
+    const loadImages = ([showcaseImageOne,showcaseImageTwo,showcaseImageThree])
+    
+    loadImages.forEach((asset) => {
+        const img = new Image()
+        img.src = asset
+
+        promises.push(new Promise((resolve, reject) => {
+            img.onload = resolve
+            img.onerror = reject
+          }))        
+    })
+    
+    Promise.all(promises).then(() => {
+        loaderTl.play()
+        console.log(loaderTl.play())
+      })
+
+
+    const loaderTl = gsap.timeline({paused:true})
     const preloader = document.querySelector<HTMLDivElement>(".preloader")
 
     const counter = document.querySelector(".count")
@@ -63,37 +104,41 @@ document.body.style.overflow = 'hidden';
         y:0
     } )
 
-    loaderTl.fromTo('#loadImage2', {
-        opacity:0,
-        y:100
-    },{y:0,opacity:1,ease:"power3.inOut",duration:0.5,display:"flex"})
-    .fromTo('#loadImage3', {
-        opacity:0,
-        y:100
-    },{y:0,opacity:1,ease:"power3.inOut",duration:0.6,display:"flex"})
-    .fromTo('#loadImage4', {
-        opacity:0,
-        y:100
-    },{y:0,opacity:1,ease:"power3.inOut",duration:0.7,display:"flex"})
+    // if(viewport > mobile) {
+        loaderTl.fromTo('#loadImage2', {
+            opacity:0,
+            y:100
+        },{y:0,opacity:1,ease:"power3.inOut",duration:0.5,display:"flex"})
+        .fromTo('#loadImage3', {
+            opacity:0,
+            y:100
+        },{y:0,opacity:1,ease:"power3.inOut",duration:0.6,display:"flex"})
+        .fromTo('#loadImage4', {
+            opacity:0,
+            y:100
+        },{y:0,opacity:1,ease:"power3.inOut",duration:0.7,display:"flex"})
+    
+        .to('#loadImage1', {
+            opacity:0,
+            duration:0.8
+        })
+        .to('#loadImage2',{
+            opacity:0,
+            duration:0.6
+        })
+        .to('#loadImage3',{
+            opacity:0,
+            duration:0.4
+        })
+        .to('#loadImage4',{
+            y:'-5rem',
+            opacity:0,
+            duration:0.2
+        })
+    // }
 
-    .to('#loadImage1', {
-        opacity:0,
-        duration:0.8
-    })
-    .to('#loadImage2',{
-        opacity:0,
-        duration:0.6
-    })
-    .to('#loadImage3',{
-        opacity:0,
-        duration:0.4
-    })
-    .to('#loadImage4',{
-        y:'-5rem',
-        opacity:0,
-        duration:0.2
-    })
-    .to('.preloader', {
+  
+    loaderTl.to('.preloader', {
         y:"-100%",
         ease:"power3.inOut",
         duration:0.5,
@@ -105,16 +150,12 @@ document.body.style.overflow = 'hidden';
         opacity: 0   
     }, { display:"block", opacity:1, ease:"none",duration:0.1, onComplete:() =>
     {
-        navbarAnimations()
-        titleSectionAnimations(),
-        heroSectionAnimations()
+       animations()
     
     
     } })
-    
 
-
-    
+    //loader count
 
     const interval = setInterval(()=> {
         const percent = Math.round((loaded / 99) * 100)
@@ -127,9 +168,12 @@ document.body.style.overflow = 'hidden';
 })
 
 
-const navbarAnimations = () => {
-    const navTl = gsap.timeline()
+const animations = () => {
+    document.body.style.position = '';
+    document.body.style.overflow = '';
+
     
+    const navTl = gsap.timeline()
 
     navTl.fromTo('.navbar-logo', {opacity:0},{ y: 0, opacity: 1, duration:1.5, clipPath: "polygon(0 100%, 100% 100%, 100% 0, 0 0)" },'<0.1')
 
@@ -141,11 +185,10 @@ const navbarAnimations = () => {
     }, "<0.5")
 
     navTl.from('.navbar__button', {opacity:0})
-}
 
-const titleSectionAnimations = () => {
-    document.body.style.position = '';
-document.body.style.overflow = '';
+
+
+ 
     titleSectionHead.forEach(title => {
         gsap.from(title.querySelectorAll('.word'), {
             opacity:0,
@@ -165,13 +208,12 @@ document.body.style.overflow = '';
         delay:0.8
     })
 
-}
+
     
 
 
 
 
-    const heroSectionAnimations = () => {
         gsap.fromTo('.hero-section__hero-container--image img', {
             opacity:0,
         }, {opacity:1,
@@ -203,9 +245,6 @@ document.body.style.overflow = '';
     
         
     heroSectionText.forEach(text => {
-            
-    
-    
         gsap.fromTo(text.querySelectorAll('.word'), {
             'will-change': 'opacity',
             opacity: 0.1
@@ -223,19 +262,10 @@ document.body.style.overflow = '';
         });
     
     });    
-    }
+    
+
+}
 
 
-    // const faqSectionTl = gsap.timeline({
-    //     scrollTrigger:{
-    //         trigger:'faqSection__container--questions-container',
-    //         start:"top +=20",
-    //         scrub:true
-    //     }
-    // })
 
-    // faqSectionTl.from('.faqSection__container--questions-container', {
-    //     opacity:0,
-    //     y:-100,
-    //     ease:"power3.inOut"
-    // })
+   
