@@ -16,6 +16,9 @@ import robotoLight from '../assets/fonts/Roboto-Light.ttf'
 import polysans from '../assets/fonts/PolySans.ttf'
 import polysansMedium from '../assets/fonts/PolySans-Bold.ttf'
 import roboto from '../assets/fonts/Roboto-Regular.ttf'
+import { resolve } from 'path';
+
+
 
 
 
@@ -68,11 +71,25 @@ document.body.style.overflow = 'hidden';
 
 const promises:any = []
     const loadImages = ([showcaseImageOne,showcaseImageTwo,showcaseImageThree])
-    
+
+    new Promise((resolve,reject)=> {
+        const polySansBoldFont = new FontFace('polysansBold', `url(${polySansBold})`)
+        const polysansMediumFont = new FontFace('polysansMedium',`url(${polysansMedium})`)
+        const circularBoldFont = new FontFace('circeularBold',`url(${circularBold})`)
+        const circularFont = new FontFace('circular', `url(${circular})`)
+        const polysansFont = new FontFace('polysans',`url(${polysans})`)
+        const robotoLightFont = new FontFace('robotoLight', `url(${robotoLight})`)
+        const robotoFont = new FontFace('roboto', `url(${robotoLight})`)
+
+        const allFonts = [polySansBoldFont,polysansFont,polysansMediumFont,circularBoldFont,circularFont,robotoLightFont,robotoFont]
+
+        allFonts.forEach((fonts) => {
+            fonts.load().then(resolve, reject);
+        })
+    })
     loadImages.forEach((asset) => {
         const img = new Image()
         img.src = asset
-
         promises.push(new Promise((resolve, reject) => {
             img.onload = resolve
             img.onerror = reject
@@ -83,6 +100,8 @@ const promises:any = []
         loaderTl.play()
         console.log(loaderTl.play())
       })
+
+      console.log(promises)
 
 
     const loaderTl = gsap.timeline({paused:true})
@@ -104,7 +123,7 @@ const promises:any = []
         y:0
     } )
 
-    // if(viewport > mobile) {
+    if(viewport > mobile) {
         loaderTl.fromTo('#loadImage2', {
             opacity:0,
             y:100
@@ -135,7 +154,7 @@ const promises:any = []
             opacity:0,
             duration:0.2
         })
-    // }
+    }
 
   
     loaderTl.to('.preloader', {
@@ -148,7 +167,7 @@ const promises:any = []
     .fromTo('.container',{
         display:"none",
         opacity: 0   
-    }, { display:"block", opacity:1, ease:"none",duration:0.1, onComplete:() =>
+    }, { display:"block", opacity:1, ease:"none",duration:0.01, onComplete:() =>
     {
        animations()
     
@@ -171,6 +190,7 @@ const promises:any = []
 const animations = () => {
     document.body.style.position = '';
     document.body.style.overflow = '';
+   
 
     
     const navTl = gsap.timeline()
