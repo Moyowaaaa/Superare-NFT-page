@@ -15,16 +15,8 @@ import circular from '../assets/fonts/CircularStd-Medium.ttf'
 import robotoLight from '../assets/fonts/Roboto-Light.ttf'
 import polysans from '../assets/fonts/PolySans.ttf'
 import polysansMedium from '../assets/fonts/PolySans-Bold.ttf'
-import roboto from '../assets/fonts/Roboto-Regular.ttf'
-import { resolve } from 'path';
 
 
-
-
-
-var assestsLoaded = false
-
-   
     
 
     
@@ -41,6 +33,17 @@ const heroSectionTitle = document.querySelectorAll('.regular-header[data-splitti
 const heroSectionText = document.querySelectorAll('.regular-text[data-splitting][data-effect16]');
 const heroSectionTextContainer = document.querySelectorAll('.hero-section__hero-container--text-container')
 const faqQuestionsContainer = document.querySelector('.faqSection__container--questions-container')
+const firstShowcaseTitle = Array.from(document.querySelectorAll('.main-subheader[data-splitting]'));
+const showcaseImages = document.querySelectorAll('.showcaseSection__showcase-container--first__image-container')
+const joinImage = document.querySelector('.joinSection__container--image-container')
+
+
+
+
+
+const yearElement = document.querySelector('#year') as HTMLElement;
+yearElement.textContent = new Date().getFullYear().toString();
+
 
 
 
@@ -79,9 +82,9 @@ const promises:any = []
         const circularFont = new FontFace('circular', `url(${circular})`)
         const polysansFont = new FontFace('polysans',`url(${polysans})`)
         const robotoLightFont = new FontFace('robotoLight', `url(${robotoLight})`)
-        const robotoFont = new FontFace('roboto', `url(${robotoLight})`)
+        // const robotoFont = new FontFace('roboto', `url(${roboto})`)
 
-        const allFonts = [polySansBoldFont,polysansFont,polysansMediumFont,circularBoldFont,circularFont,robotoLightFont,robotoFont]
+        const allFonts = [polySansBoldFont,polysansFont,polysansMediumFont,circularBoldFont,circularFont,robotoLightFont]
 
         allFonts.forEach((fonts) => {
             fonts.load().then(resolve, reject);
@@ -98,14 +101,13 @@ const promises:any = []
     
     Promise.all(promises).then(() => {
         loaderTl.play()
-        console.log(loaderTl.play())
+       
       })
 
-      console.log(promises)
+     
 
 
     const loaderTl = gsap.timeline({paused:true})
-    const preloader = document.querySelector<HTMLDivElement>(".preloader")
 
     const counter = document.querySelector(".count")
     let loaded = 0;
@@ -206,13 +208,12 @@ const animations = () => {
 
     navTl.from('.navbar__button', {opacity:0})
 
-
-
+    const titleSectionTl = gsap.timeline()
  
     titleSectionHead.forEach(title => {
-        gsap.from(title.querySelectorAll('.word'), {
+        titleSectionTl.from(title.querySelectorAll('.word'), {
             opacity:0,
-            duration:1.2,
+            duration:0.8,
             y:20,
             stagger: 0.2,
             delay:0.9
@@ -220,13 +221,18 @@ const animations = () => {
 
     })
 
-    gsap.from('.titleSection__main-container--image-container', {
+    titleSectionTl.from('.titleSection__main-container--image-container', {
         opacity:0,
         scale:1.2,
         ease:"Power3.inOut",
-        duration:1.5,
-        delay:0.8
-    })
+        duration:0.7,
+    },"<0.1")
+    .from(['.titleSection-text', '.titleSection-button'], {
+        opacity:0,
+        y:20,
+        ease:"power3.inOut"
+    },"<0.1")
+    .fromTo('.titleSection-clients',{opacity:0},{ y: 0, opacity: 1, duration:0.7, clipPath: "polygon(0 100%, 100% 100%, 100% 0, 0 0)" },'<0.3')
 
 
     
@@ -282,6 +288,57 @@ const animations = () => {
         });
     
     });    
+
+    if(viewport > mobile) {
+    firstShowcaseTitle.forEach(text => {
+        gsap.from(text.querySelectorAll('.word'), {
+            opacity:0,
+            y:20,
+            stagger: 0.05,
+            scrollTrigger:{
+                trigger: text,
+                start: 'top bottom-=20%',
+                end: 'center top+=20%',
+                scrub: true,
+            }
+        })
+    })
+
+    showcaseImages.forEach((image) => {
+        gsap.to(image,{
+            scale:1.2,
+
+            scrollTrigger:{
+                trigger: image,
+                start: 'top bottom-=20%',
+                end: 'center top+=20%',
+                scrub: true,
+            }
+        })
+    })
+
+
+    gsap.from('.faqSection__container--questions-container', {
+        opacity:0,
+        y:20,
+        duration:1,
+        scrollTrigger:{
+            trigger: '.faqSection__container--questions-container',
+            start: 'top bottom-=20%',
+            end: 'center top+=20%',
+            scrub: true,
+        }
+    })
+
+
+
+}
+
+
+
+
+
+    
     
 
 }
