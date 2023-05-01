@@ -205,39 +205,41 @@ window.addEventListener("load", () => {
       });
   }
 
-  loaderTl
-    .to(".preloader", {
-      y: "-100%",
-      ease: "power3.inOut",
-      duration: 0.5,
-      display: "none",
-      zIndex: 0,
-    })
-    .fromTo(
-      ".container",
-      {
-        display: "none",
-        opacity: 0,
-      },
-      {
-        display: "block",
-        opacity: 1,
-        ease: "none",
-        duration: 0.01,
-        onComplete: () => {
-          animations();
-        },
-      }
-    );
-
   //loader count
 
   const interval = setInterval(() => {
     const percent = Math.round((loaded / 99) * 100);
     counter.innerHTML = percent.toString();
     loaded++;
+
+    //Remove loader
+
     if (loaded === 100) {
       clearInterval(interval);
+      loaderTl
+      .to(".preloader", {
+        y: "-100%",
+        ease: "power3.inOut",
+        duration: 0.5,
+        display: "none",
+        zIndex: 0,
+      })
+      .fromTo(
+        ".container",
+        {
+          display: "none",
+          opacity: 0,
+        },
+        {
+          display: "block",
+          opacity: 1,
+          ease: "none",
+          duration: 0.01,
+          onComplete: () => {
+            animations();
+          },
+        }
+      );
     }
   }, 35);
 });
