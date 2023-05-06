@@ -235,107 +235,192 @@ window.addEventListener("load", () => {
           opacity: 1,
           ease: "none",
           duration: 0.01,
-          // onComplete: () => {
-          //   animations();
-          // },
+          onComplete: () => {
+            animations();
+          },
         }
       );
     }
   }, 35);
 });
 
-// const animations = () => {
-//   document.body.style.position = "";
-//   document.body.style.overflow = "";
 
-//   const navTl = gsap.timeline();
+let animations = () => {
+  //allow page scroll
+  document.body.style.position = "";
+  document.body.style.overflow = "";
 
-//   navTl.fromTo(
-//     ".navbar-logo",
-//     { opacity: 0 },
-//     {
-//       y: 0,
-//       opacity: 1,
-//       duration: 1.5,
-//       clipPath: "polygon(0 100%, 100% 100%, 100% 0, 0 0)",
-//     },
-//     "<0.1"
-//   );
 
-//   navTl.from(
-//     ".nav-regular h3",
-//     {
-//       x: 10,
-//       opacity: 0,
-//       ease: "power3.inOut",
-//       stagger: 0.04,
-//     },
-//     "<0.5"
-//   );
+  const navTl = gsap.timeline()
+  navTl.fromTo(
+    ".navbar-logo",
+    { opacity: 0 },
+    {
+      y: 0,
+      opacity: 1,
+      duration: 1.5,
+      clipPath: "polygon(0 100%, 100% 100%, 100% 0, 0 0)",
+    },
+    "<0.1"
+  )
+  navTl.from(
+    ".nav-regular h3",
+    {
+      x: 10,
+      opacity: 0,
+      ease: "power3.inOut",
+      stagger: 0.04,
+    },
+    "<0.5"
+  )
+  navTl.from(".navbar__button", { opacity: 0 });
 
-//   navTl.from(".navbar__button", { opacity: 0 });
+  const titleSectionTl = gsap.timeline()
+  titleSectionHead.forEach((title) => {
+    titleSectionTl.from(title.querySelectorAll(".word"), {
+      opacity: 0,
+      duration: 0.8,
+      y: 20,
+      stagger: 0.2,
+      delay: 0.9,
+    });
+  })
+  titleSectionTl
+    .from(
+      ".titleSection__main-container--image-container",
+      {
+        opacity: 0,
+        scale: 1.2,
+        ease: "Power3.inOut",
+        duration: 0.7,
+      },
+      "<0.1"
+    )
+    .from(
+      [".titleSection-text", ".titleSection-button"],
+      {
+        opacity: 0,
+        y: 20,
+        ease: "power3.inOut",
+      },
+      "<0.1"
+    )
+    .fromTo(
+      ".titleSection-clients",
+      { opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.7,
+        clipPath: "polygon(0 100%, 100% 100%, 100% 0, 0 0)",
+      },
+      "<0.3"
+    )
+  gsap.fromTo(
+    ".hero-section__hero-container--image img",
+    {
+      opacity: 0,
+    },
+    {
+      opacity: 1,
+      ease: "Power3.inOut",
+      duration: 1.2,
+      scrollTrigger: {
+        trigger: ".hero-section__hero-container--image img",
+        start: "top bottom-=20%",
+        end: "center top+=20%",
+        scrub: true,
+      },
+    }
+  );
 
-//   const titleSectionTl = gsap.timeline();
 
-//   titleSectionHead.forEach((title) => {
-//     titleSectionTl.from(title.querySelectorAll(".word"), {
-//       opacity: 0,
-//       duration: 0.8,
-//       y: 20,
-//       stagger: 0.2,
-//       delay: 0.9,
-//     });
-//   });
 
-//   titleSectionTl
-//     .from(
-//       ".titleSection__main-container--image-container",
-//       {
-//         opacity: 0,
-//         scale: 1.2,
-//         ease: "Power3.inOut",
-//         duration: 0.7,
-//       },
-//       "<0.1"
-//     )
-//     .from(
-//       [".titleSection-text", ".titleSection-button"],
-//       {
-//         opacity: 0,
-//         y: 20,
-//         ease: "power3.inOut",
-//       },
-//       "<0.1"
-//     )
-//     .fromTo(
-//       ".titleSection-clients",
-//       { opacity: 0 },
-//       {
-//         y: 0,
-//         opacity: 1,
-//         duration: 0.7,
-//         clipPath: "polygon(0 100%, 100% 100%, 100% 0, 0 0)",
-//       },
-//       "<0.3"
-//     );
+}
 
-//   gsap.fromTo(
-//     ".hero-section__hero-container--image img",
-//     {
-//       opacity: 0,
-//     },
-//     {
-//       opacity: 1,
-//       ease: "Power3.inOut",
-//       duration: 1.2,
-//       scrollTrigger: {
-//         trigger: ".hero-section__hero-container--image img",
-//         start: "top bottom-=20%",
-//         end: "center top+=20%",
-//         scrub: true,
-//       },
-//     }
-//   );
+
+  //  const navTl = gsap.timeline()
+  //  navTl.fromTo(
+  //    ".navbar-logo",
+  //    { opacity: 0 },
+  //    {
+  //      y: 0,
+  //      opacity: 1,
+  //      duration: 1.5,
+  //      clipPath: "polygon(0 100%, 100% 100%, 100% 0, 0 0)",
+  //    },
+  //    "<0.1"
+  //  )
+  //  navTl.from(
+  //    ".nav-regular h3",
+  //    {
+  //      x: 10,
+  //      opacity: 0,
+  //      ease: "power3.inOut",
+  //      stagger: 0.04,
+  //    },
+  //    "<0.5"
+  //  )
+  //  navTl.from(".navbar__button", { opacity: 0 });
+
+  //  const titleSectionTl = gsap.timeline()
+  //  titleSectionHead.forEach((title) => {
+  //    titleSectionTl.from(title.querySelectorAll(".word"), {
+  //      opacity: 0,
+  //      duration: 0.8,
+  //      y: 20,
+  //      stagger: 0.2,
+  //      delay: 0.9,
+  //    });
+  //  })
+  //  titleSectionTl
+  //    .from(
+  //      ".titleSection__main-container--image-container",
+  //      {
+  //        opacity: 0,
+  //        scale: 1.2,
+  //        ease: "Power3.inOut",
+  //        duration: 0.7,
+  //      },
+  //      "<0.1"
+  //    )
+  //    .from(
+  //      [".titleSection-text", ".titleSection-button"],
+  //      {
+  //        opacity: 0,
+  //        y: 20,
+  //        ease: "power3.inOut",
+  //      },
+  //      "<0.1"
+  //    )
+  //    .fromTo(
+  //      ".titleSection-clients",
+  //      { opacity: 0 },
+  //      {
+  //        y: 0,
+  //        opacity: 1,
+  //        duration: 0.7,
+  //        clipPath: "polygon(0 100%, 100% 100%, 100% 0, 0 0)",
+  //      },
+  //      "<0.3"
+  //    )
+  //  gsap.fromTo(
+  //    ".hero-section__hero-container--image img",
+  //    {
+  //      opacity: 0,
+  //    },
+  //    {
+  //      opacity: 1,
+  //      ease: "Power3.inOut",
+  //      duration: 1.2,
+  //      scrollTrigger: {
+  //        trigger: ".hero-section__hero-container--image img",
+  //        start: "top bottom-=20%",
+  //        end: "center top+=20%",
+  //        scrub: true,
+  //      },
+  //    }
+  //  );
 
 //   heroSectionTitle.forEach((title) => {
 //     gsap.from(title.querySelectorAll(".word"), {
