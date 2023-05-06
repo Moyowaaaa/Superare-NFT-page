@@ -1,6 +1,6 @@
 import Lenis from "@studio-freight/lenis";
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ScrollTrigger from "gsap/dist/ScrollTrigger"; // update this line
 gsap.registerPlugin(ScrollTrigger);
 import "splitting/dist/splitting.css";
 import "splitting/dist/splitting-cells.css";
