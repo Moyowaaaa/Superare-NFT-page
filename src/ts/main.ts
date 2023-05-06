@@ -67,182 +67,182 @@ requestAnimationFrame(scrollFn);
 
 //Preloader
 
-// window.addEventListener("load", () => {
-//   document.body.style.position = "fixed";
-//   document.body.style.overflow = "hidden";
+window.addEventListener("load", () => {
+  document.body.style.position = "fixed";
+  document.body.style.overflow = "hidden";
 
-//   const promises: any = [];
-//   const loadImages = [showcaseImageOne, showcaseImageTwo, showcaseImageThree];
+  const promises: any = [];
+  const loadImages = [showcaseImageOne, showcaseImageTwo, showcaseImageThree];
 
-// //   new Promise((resolve, reject) => {
-// //     const polySansBoldFont = new FontFace(
-// //       "polysansBold",
-// //       `url(${polySansBold})`
-// //     );
-// //     const polysansMediumFont = new FontFace(
-// //       "polysansMedium",
-// //       `url(${polysansMedium})`
-// //     );
-// //     const circularBoldFont = new FontFace(
-// //       "circeularBold",
-// //       `url(${circularBold})`
-// //     );
-// //     const circularFont = new FontFace("circular", `url(${circular})`);
-// //     const polysansFont = new FontFace("polysans", `url(${polysans})`);
-// //     const robotoLightFont = new FontFace("robotoLight", `url(${robotoLight})`);
-// //     // const robotoFont = new FontFace('roboto', `url(${roboto})`)
-
-// //     const allFonts = [
-// //       polySansBoldFont,
-// //       polysansFont,
-// //       polysansMediumFont,
-// //       circularBoldFont,
-// //       circularFont,
-// //       robotoLightFont,
-// //     ];
-
-// //     allFonts.forEach((fonts) => {
-// //       fonts.load().then(resolve, reject);
-// //     });
-// //   });
-//   loadImages.forEach((asset) => {
-//     const img = new Image();
-//     img.src = asset;
-//     promises.push(
-//       new Promise((resolve, reject) => {
-//         img.onload = resolve;
-//         img.onerror = reject;
-//       })
+//   new Promise((resolve, reject) => {
+//     const polySansBoldFont = new FontFace(
+//       "polysansBold",
+//       `url(${polySansBold})`
 //     );
+//     const polysansMediumFont = new FontFace(
+//       "polysansMedium",
+//       `url(${polysansMedium})`
+//     );
+//     const circularBoldFont = new FontFace(
+//       "circeularBold",
+//       `url(${circularBold})`
+//     );
+//     const circularFont = new FontFace("circular", `url(${circular})`);
+//     const polysansFont = new FontFace("polysans", `url(${polysans})`);
+//     const robotoLightFont = new FontFace("robotoLight", `url(${robotoLight})`);
+//     // const robotoFont = new FontFace('roboto', `url(${roboto})`)
+
+//     const allFonts = [
+//       polySansBoldFont,
+//       polysansFont,
+//       polysansMediumFont,
+//       circularBoldFont,
+//       circularFont,
+//       robotoLightFont,
+//     ];
+
+//     allFonts.forEach((fonts) => {
+//       fonts.load().then(resolve, reject);
+//     });
 //   });
+  loadImages.forEach((asset) => {
+    const img = new Image();
+    img.src = asset;
+    promises.push(
+      new Promise((resolve, reject) => {
+        img.onload = resolve;
+        img.onerror = reject;
+      })
+    );
+  });
 
-//   Promise.all(promises).then(() => {
-//     loaderTl.play();
-//   });
+  Promise.all(promises).then(() => {
+    loaderTl.play();
+  });
 
-//   const loaderTl = gsap.timeline({ paused: true });
+  const loaderTl = gsap.timeline({ paused: true });
 
-//   const counter = document.querySelector(".count");
-//   let loaded = 0;
+  const counter = document.querySelector(".count");
+  let loaded = 0;
 
-//   loaderTl.fromTo(
-//     "#loadImage1",
-//     {
-//       opacity: 0,
-//       y: 100,
-//       ease: "power3.inOut",
-//     },
-//     {
-//       duration: 0.4,
-//       display: "flex",
-//       ease: "power.inOut",
-//       opacity: 1,
-//       y: 0,
-//     }
-//   );
+  loaderTl.fromTo(
+    "#loadImage1",
+    {
+      opacity: 0,
+      y: 100,
+      ease: "power3.inOut",
+    },
+    {
+      duration: 0.4,
+      display: "flex",
+      ease: "power.inOut",
+      opacity: 1,
+      y: 0,
+    }
+  );
 
-//   if (viewport > mobile) {
-//     loaderTl
-//       .fromTo(
-//         "#loadImage2",
-//         {
-//           opacity: 0,
-//           y: 100,
-//         },
-//         {
-//           y: 0,
-//           opacity: 1,
-//           ease: "power3.inOut",
-//           duration: 0.5,
-//           display: "flex",
-//         }
-//       )
-//       .fromTo(
-//         "#loadImage3",
-//         {
-//           opacity: 0,
-//           y: 100,
-//         },
-//         {
-//           y: 0,
-//           opacity: 1,
-//           ease: "power3.inOut",
-//           duration: 0.6,
-//           display: "flex",
-//         }
-//       )
-//       .fromTo(
-//         "#loadImage4",
-//         {
-//           opacity: 0,
-//           y: 100,
-//         },
-//         {
-//           y: 0,
-//           opacity: 1,
-//           ease: "power3.inOut",
-//           duration: 0.7,
-//           display: "flex",
-//         }
-//       )
+  if (viewport > mobile) {
+    loaderTl
+      .fromTo(
+        "#loadImage2",
+        {
+          opacity: 0,
+          y: 100,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          ease: "power3.inOut",
+          duration: 0.5,
+          display: "flex",
+        }
+      )
+      .fromTo(
+        "#loadImage3",
+        {
+          opacity: 0,
+          y: 100,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          ease: "power3.inOut",
+          duration: 0.6,
+          display: "flex",
+        }
+      )
+      .fromTo(
+        "#loadImage4",
+        {
+          opacity: 0,
+          y: 100,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          ease: "power3.inOut",
+          duration: 0.7,
+          display: "flex",
+        }
+      )
 
-//       .to("#loadImage1", {
-//         opacity: 0,
-//         duration: 0.8,
-//       })
-//       .to("#loadImage2", {
-//         opacity: 0,
-//         duration: 0.6,
-//       })
-//       .to("#loadImage3", {
-//         opacity: 0,
-//         duration: 0.4,
-//       })
-//       .to("#loadImage4", {
-//         y: "-5rem",
-//         opacity: 0,
-//         duration: 0.2,
-//       });
-//   }
+      .to("#loadImage1", {
+        opacity: 0,
+        duration: 0.8,
+      })
+      .to("#loadImage2", {
+        opacity: 0,
+        duration: 0.6,
+      })
+      .to("#loadImage3", {
+        opacity: 0,
+        duration: 0.4,
+      })
+      .to("#loadImage4", {
+        y: "-5rem",
+        opacity: 0,
+        duration: 0.2,
+      });
+  }
 
-//   //loader count
+  //loader count
 
-//   const interval = setInterval(() => {
-//     const percent = Math.round((loaded / 99) * 100);
-//     counter.innerHTML = percent.toString();
-//     loaded++;
+  const interval = setInterval(() => {
+    const percent = Math.round((loaded / 99) * 100);
+    counter.innerHTML = percent.toString();
+    loaded++;
 
-//     //Remove loader
+    //Remove loader
 
-//     if (loaded === 100) {
-//       clearInterval(interval);
-//       loaderTl
-//       .to(".preloader", {
-//         y: "-100%",
-//         ease: "power3.inOut",
-//         duration: 0.5,
-//         display: "none",
-//         zIndex: 0,
-//       })
-//       .fromTo(
-//         ".container",
-//         {
-//           display: "none",
-//           opacity: 0,
-//         },
-//         {
-//           display: "block",
-//           opacity: 1,
-//           ease: "none",
-//           duration: 0.01,
-//           onComplete: () => {
-//             animations();
-//           },
-//         }
-//       );
-//     }
-//   }, 35);
-// });
+    if (loaded === 100) {
+      clearInterval(interval);
+      loaderTl
+      .to(".preloader", {
+        y: "-100%",
+        ease: "power3.inOut",
+        duration: 0.5,
+        display: "none",
+        zIndex: 0,
+      })
+      .fromTo(
+        ".container",
+        {
+          display: "none",
+          opacity: 0,
+        },
+        {
+          display: "block",
+          opacity: 1,
+          ease: "none",
+          duration: 0.01,
+          // onComplete: () => {
+          //   animations();
+          // },
+        }
+      );
+    }
+  }, 35);
+});
 
 // const animations = () => {
 //   document.body.style.position = "";
