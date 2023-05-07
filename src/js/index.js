@@ -1,6 +1,6 @@
 import Lenis from "@studio-freight/lenis";
 import { gsap } from "gsap";
-import ScrollTrigger from "gsap/dist/ScrollTrigger"; // update this line
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 import "splitting/dist/splitting.css";
 import "splitting/dist/splitting-cells.css";
@@ -46,10 +46,10 @@ const joinImage = document.querySelector(
   ".joinSection__container--image-container"
 );
 
-const yearElement = document.querySelector("#year") as HTMLElement;
+const yearElement = document.querySelector("#year");
 yearElement.textContent = new Date().getFullYear().toString();
 
-let lenis: Lenis;
+let lenis;
 
 lenis = new Lenis({
   lerp: 0.2,
@@ -58,7 +58,7 @@ lenis = new Lenis({
 
 lenis.on("scroll", () => ScrollTrigger.update());
 
-const scrollFn = (time: any) => {
+const scrollFn = (time) => {
   lenis.raf(time);
   requestAnimationFrame(scrollFn);
 };
@@ -71,7 +71,7 @@ window.addEventListener("load", () => {
   document.body.style.position = "fixed";
   document.body.style.overflow = "hidden";
 
-  const promises: any = [];
+  const promises = [];
   const loadImages = [showcaseImageOne, showcaseImageTwo, showcaseImageThree];
 
 //   new Promise((resolve, reject) => {
@@ -244,14 +244,12 @@ window.addEventListener("load", () => {
   }, 35);
 });
 
-
-let animations = () => {
-  //allow page scroll
+const animations = () => {
   document.body.style.position = "";
   document.body.style.overflow = "";
 
+  const navTl = gsap.timeline();
 
-  const navTl = gsap.timeline()
   navTl.fromTo(
     ".navbar-logo",
     { opacity: 0 },
@@ -262,7 +260,8 @@ let animations = () => {
       clipPath: "polygon(0 100%, 100% 100%, 100% 0, 0 0)",
     },
     "<0.1"
-  )
+  );
+
   navTl.from(
     ".nav-regular h3",
     {
@@ -272,10 +271,12 @@ let animations = () => {
       stagger: 0.04,
     },
     "<0.5"
-  )
+  );
+
   navTl.from(".navbar__button", { opacity: 0 });
 
-  const titleSectionTl = gsap.timeline()
+  const titleSectionTl = gsap.timeline();
+
   titleSectionHead.forEach((title) => {
     titleSectionTl.from(title.querySelectorAll(".word"), {
       opacity: 0,
@@ -284,7 +285,8 @@ let animations = () => {
       stagger: 0.2,
       delay: 0.9,
     });
-  })
+  });
+
   titleSectionTl
     .from(
       ".titleSection__main-container--image-container",
@@ -315,7 +317,8 @@ let animations = () => {
         clipPath: "polygon(0 100%, 100% 100%, 100% 0, 0 0)",
       },
       "<0.3"
-    )
+    );
+
   gsap.fromTo(
     ".hero-section__hero-container--image img",
     {
@@ -334,167 +337,79 @@ let animations = () => {
     }
   );
 
+  heroSectionTitle.forEach((title) => {
+    gsap.from(title.querySelectorAll(".word"), {
+      opacity: 0,
+      y: 20,
+      stagger: 0.05,
+      scrollTrigger: {
+        trigger: title,
+        start: "top bottom-=20%",
+        end: "center top+=20%",
+        scrub: true,
+      },
+    });
+  });
 
+  heroSectionText.forEach((text) => {
+    gsap.fromTo(
+      text.querySelectorAll(".word"),
+      {
+        "will-change": "opacity",
+        opacity: 0.1,
+      },
+      {
+        ease: "none",
+        opacity: 1,
+        stagger: 0.05,
+        scrollTrigger: {
+          trigger: text,
+          start: "top bottom-=20%",
+          end: "center top+=20%",
+          scrub: true,
+        },
+      }
+    );
+  });
 
-}
+  if (viewport > mobile) {
+    firstShowcaseTitle.forEach((text) => {
+      gsap.from(text.querySelectorAll(".word"), {
+        opacity: 0,
+        y: 20,
+        stagger: 0.05,
+        scrollTrigger: {
+          trigger: text,
+          start: "top bottom-=20%",
+          end: "center top+=20%",
+          scrub: true,
+        },
+      });
+    });
 
+    showcaseImages.forEach((image) => {
+      gsap.to(image, {
+        scale: 1.2,
 
-  //  const navTl = gsap.timeline()
-  //  navTl.fromTo(
-  //    ".navbar-logo",
-  //    { opacity: 0 },
-  //    {
-  //      y: 0,
-  //      opacity: 1,
-  //      duration: 1.5,
-  //      clipPath: "polygon(0 100%, 100% 100%, 100% 0, 0 0)",
-  //    },
-  //    "<0.1"
-  //  )
-  //  navTl.from(
-  //    ".nav-regular h3",
-  //    {
-  //      x: 10,
-  //      opacity: 0,
-  //      ease: "power3.inOut",
-  //      stagger: 0.04,
-  //    },
-  //    "<0.5"
-  //  )
-  //  navTl.from(".navbar__button", { opacity: 0 });
+        scrollTrigger: {
+          trigger: image,
+          start: "top bottom-=20%",
+          end: "center top+=20%",
+          scrub: true,
+        },
+      });
+    });
 
-  //  const titleSectionTl = gsap.timeline()
-  //  titleSectionHead.forEach((title) => {
-  //    titleSectionTl.from(title.querySelectorAll(".word"), {
-  //      opacity: 0,
-  //      duration: 0.8,
-  //      y: 20,
-  //      stagger: 0.2,
-  //      delay: 0.9,
-  //    });
-  //  })
-  //  titleSectionTl
-  //    .from(
-  //      ".titleSection__main-container--image-container",
-  //      {
-  //        opacity: 0,
-  //        scale: 1.2,
-  //        ease: "Power3.inOut",
-  //        duration: 0.7,
-  //      },
-  //      "<0.1"
-  //    )
-  //    .from(
-  //      [".titleSection-text", ".titleSection-button"],
-  //      {
-  //        opacity: 0,
-  //        y: 20,
-  //        ease: "power3.inOut",
-  //      },
-  //      "<0.1"
-  //    )
-  //    .fromTo(
-  //      ".titleSection-clients",
-  //      { opacity: 0 },
-  //      {
-  //        y: 0,
-  //        opacity: 1,
-  //        duration: 0.7,
-  //        clipPath: "polygon(0 100%, 100% 100%, 100% 0, 0 0)",
-  //      },
-  //      "<0.3"
-  //    )
-  //  gsap.fromTo(
-  //    ".hero-section__hero-container--image img",
-  //    {
-  //      opacity: 0,
-  //    },
-  //    {
-  //      opacity: 1,
-  //      ease: "Power3.inOut",
-  //      duration: 1.2,
-  //      scrollTrigger: {
-  //        trigger: ".hero-section__hero-container--image img",
-  //        start: "top bottom-=20%",
-  //        end: "center top+=20%",
-  //        scrub: true,
-  //      },
-  //    }
-  //  );
-
-//   heroSectionTitle.forEach((title) => {
-//     gsap.from(title.querySelectorAll(".word"), {
-//       opacity: 0,
-//       y: 20,
-//       stagger: 0.05,
-//       scrollTrigger: {
-//         trigger: title,
-//         start: "top bottom-=20%",
-//         end: "center top+=20%",
-//         scrub: true,
-//       },
-//     });
-//   });
-
-//   heroSectionText.forEach((text) => {
-//     gsap.fromTo(
-//       text.querySelectorAll(".word"),
-//       {
-//         "will-change": "opacity",
-//         opacity: 0.1,
-//       },
-//       {
-//         ease: "none",
-//         opacity: 1,
-//         stagger: 0.05,
-//         scrollTrigger: {
-//           trigger: text,
-//           start: "top bottom-=20%",
-//           end: "center top+=20%",
-//           scrub: true,
-//         },
-//       }
-//     );
-//   });
-
-//   if (viewport > mobile) {
-//     firstShowcaseTitle.forEach((text) => {
-//       gsap.from(text.querySelectorAll(".word"), {
-//         opacity: 0,
-//         y: 20,
-//         stagger: 0.05,
-//         scrollTrigger: {
-//           trigger: text,
-//           start: "top bottom-=20%",
-//           end: "center top+=20%",
-//           scrub: true,
-//         },
-//       });
-//     });
-
-//     showcaseImages.forEach((image) => {
-//       gsap.to(image, {
-//         scale: 1.2,
-
-//         scrollTrigger: {
-//           trigger: image,
-//           start: "top bottom-=20%",
-//           end: "center top+=20%",
-//           scrub: true,
-//         },
-//       });
-//     });
-
-//     gsap.from(".faqSection__container--questions-container", {
-//       opacity: 0,
-//       y: 20,
-//       duration: 1,
-//       scrollTrigger: {
-//         trigger: ".faqSection__container--questions-container",
-//         start: "top bottom-=20%",
-//         end: "center top+=20%",
-//         scrub: true,
-//       },
-//     });
-//   }
-// };
+    gsap.from(".faqSection__container--questions-container", {
+      opacity: 0,
+      y: 20,
+      duration: 1,
+      scrollTrigger: {
+        trigger: ".faqSection__container--questions-container",
+        start: "top bottom-=20%",
+        end: "center top+=20%",
+        scrub: true,
+      },
+    });
+  }
+};
