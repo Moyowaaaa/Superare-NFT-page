@@ -6,6 +6,15 @@ import "splitting/dist/splitting.css";
 import "splitting/dist/splitting-cells.css";
 import Splitting from "splitting";
 
+import showcaseImageOne from "../assets/images/showcase1.png";
+import showcaseImageTwo from "../assets/images/showcase2.png";
+import showcaseImageThree from "../assets/images/showcase3.png";
+// import polySansBold from "../assets/fonts/PolySans-Bold.ttf";
+// import circularBold from "../assets/fonts/CircularStd-Bold.ttf";
+// import circular from "../assets/fonts/CircularStd-Medium.ttf";
+// import robotoLight from "../assets/fonts/Roboto-Light.ttf";
+// import polysans from "../assets/fonts/PolySans.ttf";
+// import polysansMedium from "../assets/fonts/PolySans-Bold.ttf";
 
 var viewport = window.innerWidth;
 var mobile = 480;
@@ -68,7 +77,37 @@ window.addEventListener("load", () => {
   const promises = [];
   const loadImages = [showcaseImageOne, showcaseImageTwo, showcaseImageThree];
 
+  // new Promise((resolve, reject) => {
+  //   const polySansBoldFont = new FontFace(
+  //     "polysansBold",
+  //     `url(${polySansBold})`
+  //   );
+  //   const polysansMediumFont = new FontFace(
+  //     "polysansMedium",
+  //     `url(${polysansMedium})`
+  //   );
+  //   const circularBoldFont = new FontFace(
+  //     "circeularBold",
+  //     `url(${circularBold})`
+  //   );
+  //   const circularFont = new FontFace("circular", `url(${circular})`);
+  //   const polysansFont = new FontFace("polysans", `url(${polysans})`);
+  //   const robotoLightFont = new FontFace("robotoLight", `url(${robotoLight})`);
+  //   // const robotoFont = new FontFace('roboto', `url(${roboto})`)
 
+  //   const allFonts = [
+  //     polySansBoldFont,
+  //     polysansFont,
+  //     polysansMediumFont,
+  //     circularBoldFont,
+  //     circularFont,
+  //     robotoLightFont,
+  //   ];
+
+  //   allFonts.forEach((fonts) => {
+  //     fonts.load().then(resolve, reject);
+  //   });
+  // });
   loadImages.forEach((asset) => {
     const img = new Image();
     img.src = asset;
