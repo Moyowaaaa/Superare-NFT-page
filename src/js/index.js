@@ -9,12 +9,12 @@ import Splitting from "splitting";
 import showcaseImageOne from "../assets/images/showcase1.png";
 import showcaseImageTwo from "../assets/images/showcase2.png";
 import showcaseImageThree from "../assets/images/showcase3.png";
-// import polySansBold from "../assets/fonts/PolySans-Bold.ttf";
-// import circularBold from "../assets/fonts/CircularStd-Bold.ttf";
-// import circular from "../assets/fonts/CircularStd-Medium.ttf";
-// import robotoLight from "../assets/fonts/Roboto-Light.ttf";
-// import polysans from "../assets/fonts/PolySans.ttf";
-// import polysansMedium from "../assets/fonts/PolySans-Bold.ttf";
+import polySansBold from "../assets/fonts/PolySans-Bold.ttf";
+import circularBold from "../assets/fonts/CircularStd-Bold.ttf";
+import circular from "../assets/fonts/CircularStd-Medium.ttf";
+import robotoLight from "../assets/fonts/Roboto-Light.ttf";
+import polysans from "../assets/fonts/PolySans.ttf";
+import polysansMedium from "../assets/fonts/PolySans-Bold.ttf";
 
 var viewport = window.innerWidth;
 var mobile = 480;
@@ -46,6 +46,9 @@ const joinImage = document.querySelector(
   ".joinSection__container--image-container"
 );
 
+const showcaseDescriptions = Array.from(document.querySelectorAll("[data-splitting][data-effect-showcase-description]"))
+
+
 const yearElement = document.querySelector("#year");
 yearElement.textContent = new Date().getFullYear().toString();
 
@@ -74,37 +77,37 @@ window.addEventListener("load", () => {
   const promises = [];
   const loadImages = [showcaseImageOne, showcaseImageTwo, showcaseImageThree];
 
-//   new Promise((resolve, reject) => {
-//     const polySansBoldFont = new FontFace(
-//       "polysansBold",
-//       `url(${polySansBold})`
-//     );
-//     const polysansMediumFont = new FontFace(
-//       "polysansMedium",
-//       `url(${polysansMedium})`
-//     );
-//     const circularBoldFont = new FontFace(
-//       "circeularBold",
-//       `url(${circularBold})`
-//     );
-//     const circularFont = new FontFace("circular", `url(${circular})`);
-//     const polysansFont = new FontFace("polysans", `url(${polysans})`);
-//     const robotoLightFont = new FontFace("robotoLight", `url(${robotoLight})`);
-//     // const robotoFont = new FontFace('roboto', `url(${roboto})`)
+  new Promise((resolve, reject) => {
+    const polySansBoldFont = new FontFace(
+      "polysansBold",
+      `url(${polySansBold})`
+    );
+    const polysansMediumFont = new FontFace(
+      "polysansMedium",
+      `url(${polysansMedium})`
+    );
+    const circularBoldFont = new FontFace(
+      "circeularBold",
+      `url(${circularBold})`
+    );
+    const circularFont = new FontFace("circular", `url(${circular})`);
+    const polysansFont = new FontFace("polysans", `url(${polysans})`);
+    const robotoLightFont = new FontFace("robotoLight", `url(${robotoLight})`);
+    // const robotoFont = new FontFace('roboto', `url(${roboto})`)
 
-//     const allFonts = [
-//       polySansBoldFont,
-//       polysansFont,
-//       polysansMediumFont,
-//       circularBoldFont,
-//       circularFont,
-//       robotoLightFont,
-//     ];
+    const allFonts = [
+      polySansBoldFont,
+      polysansFont,
+      polysansMediumFont,
+      circularBoldFont,
+      circularFont,
+      robotoLightFont,
+    ];
 
-//     allFonts.forEach((fonts) => {
-//       fonts.load().then(resolve, reject);
-//     });
-//   });
+    allFonts.forEach((fonts) => {
+      fonts.load().then(resolve, reject);
+    });
+  });
   loadImages.forEach((asset) => {
     const img = new Image();
     img.src = asset;
@@ -125,6 +128,7 @@ window.addEventListener("load", () => {
   const counter = document.querySelector(".count");
   let loaded = 0;
 
+  gsap.set('.container',{opacity:0})
   loaderTl.fromTo(
     "#loadImage1",
     {
@@ -245,6 +249,7 @@ window.addEventListener("load", () => {
 });
 
 const animations = () => {
+  gsap.set('.container',{opacity:1})
   document.body.style.position = "";
   document.body.style.overflow = "";
 
@@ -400,6 +405,27 @@ const animations = () => {
       });
     });
 
+    showcaseDescriptions.forEach((text) => {
+      gsap.fromTo(
+        text.querySelectorAll(".word"),
+        {
+          "will-change": "opacity",
+          opacity: 0.1,
+        },
+        {
+          ease: "none",
+          opacity: 1,
+          stagger: 0.05,
+          scrollTrigger: {
+            trigger: text,
+            start: "top bottom-=20%",
+            end: "center top+=80%",
+            scrub: true,
+          },
+        }
+      );
+    })
+
     gsap.from(".faqSection__container--questions-container", {
       opacity: 0,
       y: 20,
@@ -411,5 +437,18 @@ const animations = () => {
         scrub: true,
       },
     });
+    gsap.fromTo('.joinSection__container--image-container img',{ opacity: 0 },
+    {
+      y: 0,
+      opacity: 1,
+      duration: 1.5,
+      clipPath: "polygon(0 100%, 100% 100%, 100% 0, 0 0)",
+      scrollTrigger:{
+        trigger:'.joinSection__container--image-container img',
+        start: "top bottom-=20%",
+        end: "center top+=30%",
+        scrub:0.4
+      }
+    })
   }
 };
