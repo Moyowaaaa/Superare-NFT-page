@@ -1,125 +1,115 @@
-.titleSection{
-    height: 100vh;
+.titleSection {
+  height: 100vh;
+  width: 100%;
+  background-color: #030106;
+  background-image: url("../assets/images/wave.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  padding-top: 2rem;
+  background-size: cover;
+  // max-width: 150rem;
+  color: white;
+  // background-attachment: fixed;
+
+  box-sizing: border-box;
+  padding: 3rem 10rem;
+
+  &__main-container {
     width: 100%;
-    background-color: #030106;
-    background-image: url('../assets/images/wave.png');
-    background-repeat: no-repeat;
-    background-position: center;
+
+    min-height: 70rem;
+
     display: flex;
-    flex-direction: column;
-    padding-top: 2rem;
-    background-size: cover;
-    // max-width: 150rem;
-    color: white;
-    // background-attachment: fixed;
- 
-    box-sizing: border-box;
-    padding: 3rem 10rem;
-  
+    align-items: center;
+    justify-content: space-between;
 
-    &__main-container{
+    &--text-content {
+      // font-size: 7rem;
+      display: flex;
+      flex-direction: column;
+      gap: 4rem;
+
+      flex-basis: 70%;
+
+      h1 {
         width: 100%;
-       
-        min-height: 70rem;
-    
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+      }
 
-        &--text-content{
-            // font-size: 7rem;
-            display: flex;
-            flex-direction: column;
-            gap:4rem;
-    
-            flex-basis: 70%;
+      p {
+        width: 70%;
+      }
 
-            h1{
-                width: 100%;
-            
-            }
-
-            p{
-                width: 70%;
-            }
-
-            &--button{
-                padding: 1.5rem 6rem;
-            }
-        }
-
-        &--clients{
-            width: 10rem;
-            
-            position: absolute;
-            bottom:10rem;
-            display: flex;
-            gap:4rem;
-            width: max-content;
-        
-        }
-        
-
-        &--image-container{
-            border: 2px solid red;
-            width: 40rem;
-            height: 40rem;
-            margin-right: 10rem;
-            border: 18px solid transparent;
-            border-radius: 10px;
-            background: 
-              linear-gradient(black, black) padding-box, 
-              linear-gradient(
-                231.55deg, 
-                rgba(255, 255, 255, 0.15),
-                rgba(255, 255, 255, 0.05)
-              ) border-box;
-              backdrop-filter: blur(2px);
-            // background: linear-gradient(231.55deg, rgba(255, 255, 255, 0.15) 2.21%, rgba(255, 255, 255, 0.05) 100%);
-// border: 0.1px solid rgba(255, 255, 255, 0.5);
-
-
-img{
-    width: 100%;
-    height: 100%;
-    object-fit:cover;
-    border-radius:1rem ;
-}
-        }
+      &--button {
+        padding: 1.5rem 6rem;
+      }
     }
-}
 
+    &--clients {
+      width: 10rem;
 
-
-@media screen and (max-width:485px) {
-    .titleSection{
-        padding: 0;
-        height: 100vh;
-
-        &__main-container{
-            height: 100%;
-
-            &--text-content{
-                flex-basis: 100%;
-                padding:0 1rem;
-                p{
-                    width: 100%;
-                }
-            }
-
-            &--clients{
-                margin-left: 1rem;
-            position: relative;
-            bottom: 10rem;
-            display: none;
-            }
-
-            &--image-container{
-display: none;
-
-            }
-
-        }
+      position: absolute;
+      bottom: 10rem;
+      display: flex;
+      gap: 4rem;
+      width: max-content;
     }
+
+    &--image-container {
+      border: 2px solid red;
+      width: 40rem;
+      height: 40rem;
+      margin-right: 10rem;
+      border: 18px solid transparent;
+      border-radius: 10px;
+      background: linear-gradient(black, black) padding-box,
+        linear-gradient(
+            231.55deg,
+            rgba(255, 255, 255, 0.15),
+            rgba(255, 255, 255, 0.05)
+          )
+          border-box;
+      backdrop-filter: blur(2px);
+      // background: linear-gradient(231.55deg, rgba(255, 255, 255, 0.15) 2.21%, rgba(255, 255, 255, 0.05) 100%);
+      // border: 0.1px solid rgba(255, 255, 255, 0.5);
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 1rem;
+      }
+    }
+  }
 }
 
+@media screen and (max-width: 485px) {
+  .titleSection {
+    padding: 0;
+    height: 100vh;
+
+    &__main-container {
+      height: 100%;
+
+      &--text-content {
+        flex-basis: 100%;
+        padding: 0 1rem;
+        p {
+          width: 100%;
+        }
+      }
+
+      &--clients {
+        margin-left: 1rem;
+        position: relative;
+        bottom: 10rem;
+        display: none;
+      }
+
+      &--image-container {
+        display: none;
+      }
+    }
+  }
+}
