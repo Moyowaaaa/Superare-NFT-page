@@ -1,77 +1,78 @@
-.preloader{
-    height: 100vh;
+.preloader {
+  height: 100vh;
+  width: 100%;
+  z-index: 10;
+  background-color: #07040d;
+  display: flex;
+  flex-direction: column;
+  gap: 2;
+  box-sizing: border-box;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  &__imagescontainer {
     width: 100%;
-    z-index: 10;
-    background-color: #07040D;
-    display: flex;
-    flex-direction: column;
-    gap: 2;
 
-    &__imagescontainer{
+    margin: 0 auto;
+
+    &--imagecontainer {
+      width: 25%;
+      position: absolute;
+      height: 40rem;
+      margin-top: 10%;
+      margin-left: 37.5%;
+      display: none;
+
+      &:nth-child(1) {
+        display: block;
+      }
+
+      img {
         width: 100%;
-    
-        margin:  0 auto;
-
-        &--imagecontainer{
-            width: 25%;
-            position: absolute;
-            height: 40rem;
-            margin-top: 10%;
-            margin-left:37.5%;
-            display: none;
-
-            &:nth-child(1){
-                display: block;
-            }
-           
-
-            img{
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
-        }
+        height: 100%;
+        object-fit: cover;
+      }
     }
+  }
 
-
-    &__count{
-        font-size: 10vw;
-        font-weight: 400;
-        color: white;
-        position:relative;
-        top: 75%;
-        left: 80%;
-        font-family: 'circular-regular';
-    }
+  &__count {
+    font-size: 10vw;
+    font-weight: 400;
+    color: white;
+    position: relative;
+    top: 75%;
+    left: 80%;
+    font-family: "circular-regular";
+  }
 }
 
-
-@media screen and (max-width:485px) {
-    .preloader{
-        &__count{
-            top:-5%;
-
-            font-size:10vw
-        }
-        width: 100vw;
-        &__imagescontainer{
-            display: flex;
-            height: 100%;
-            justify-content: center;
-            flex-direction: column;
-            &--imagecontainer{
-                width: 80%;
-                position: relative;
-                margin: auto;
-                display: none;
-                
-              
-                // display: flex;
-
-                &:nth-child(1){
-                    display: block;
-                }
-            }
-        }
+@media screen and (max-width: 485px) {
+  .preloader {
+    &__count {
+      bottom: 25%;
+      position: absolute;
+      font-size: 15vw;
     }
+    width: 100vw;
+    &__imagescontainer {
+      display: flex;
+      height: 100%;
+      justify-content: center;
+      flex-direction: column;
+      &--imagecontainer {
+        width: 80%;
+        position: relative;
+        margin: auto;
+        display: none;
+
+        // display: flex;
+
+        &:nth-child(1) {
+          display: block;
+        }
+      }
+    }
+  }
 }

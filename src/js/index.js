@@ -6,6 +6,10 @@ import "splitting/dist/splitting.css";
 import "splitting/dist/splitting-cells.css";
 import Splitting from "splitting";
 
+import showcaseImageOne from '../assets/images/showcase1.png'
+import showcaseImageTwo from '../assets/images/showcase2.png'
+import showcaseImageThree from '../assets/images/showcase3.png'
+
 
 var viewport = window.innerWidth;
 var mobile = 480;
@@ -20,12 +24,6 @@ const heroSectionTitle = document.querySelectorAll(
 );
 const heroSectionText = document.querySelectorAll(
   ".regular-text[data-splitting][data-effect16]"
-);
-const heroSectionTextContainer = document.querySelectorAll(
-  ".hero-section__hero-container--text-container"
-);
-const faqQuestionsContainer = document.querySelector(
-  ".faqSection__container--questions-container"
 );
 const firstShowcaseTitle = Array.from(
   document.querySelectorAll(".main-subheader[data-splitting]")
@@ -206,7 +204,7 @@ window.addEventListener("load", () => {
         }
       );
     }
-  }, 35);
+  }, 25);
 });
 
 const animations = () => {
@@ -303,6 +301,7 @@ const animations = () => {
     }
   );
 
+  if (viewport > mobile) {
   heroSectionTitle.forEach((title) => {
     gsap.from(title.querySelectorAll(".word"), {
       opacity: 0,
@@ -337,6 +336,7 @@ const animations = () => {
       }
     );
   });
+}
 
   if (viewport > mobile) {
     firstShowcaseTitle.forEach((text) => {
@@ -411,5 +411,23 @@ const animations = () => {
         scrub:0.4
       }
     })
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: '.characterSection__characters-container',
+        scrub: -1,
+        start: 'center +=600',
+        end: 'bottom +=300',
+        toggleActions: 'play pause resume restart',
+      }
+    }).to('#top-images', {
+      xPercent: -40 * 5,
+      duration: 20,
+      ease: "power3.inOut",
+ }).to('#bottom-images', {
+  xPercent: -40 * 5,
+  duration: 20,
+  ease: "power3.inOut",
+ })
+
   }
 };

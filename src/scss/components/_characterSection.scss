@@ -16,6 +16,8 @@
     // background: url('../assets/images/Ellipse3.png'), url('../assets/images/Ellipse4.png');
     background-repeat: no-repeat;
     background-size: cover;
+    
+
 
     &__title{
         display: flex;
@@ -37,16 +39,20 @@
     padding: 2rem 0;;
        
         display: flex;
-        overflow-x: scroll;
+        overflow: scroll;
         padding-left: 4rem;
         gap:4rem;
         width: 100%;
+        
+       
 
         &:nth-child(1){
             margin-top: 4rem;
         }
 
         &--character-container{
+            min-width: 25rem;
+            max-width: 25rem;
             width: 25rem;
             height:25rem;
             border-radius: 2rem;
@@ -54,14 +60,17 @@
             img{
                 height:100%;
                 width: 100%;
-                object-fit: contain;
+                object-fit: cover;
             }
         }
         
     }
 
+    
+
  
 }
+
 
 
 @media screen and (max-width:485px) {
