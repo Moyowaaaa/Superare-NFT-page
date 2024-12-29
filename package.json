@@ -4,7 +4,7 @@
   "source": "src/index.html",
   "license": "MIT",
   "scripts": {
-    "dev": "rm -rf .parcel-cache && parcel src/index.html -p 3000 --host 0.0.0.0",
+    "dev": "parcel src/index.html -p 3000 --host 0.0.0.0",
     "build": "parcel build src/index.html --dist-dir dist"
   },
   "keywords": [],

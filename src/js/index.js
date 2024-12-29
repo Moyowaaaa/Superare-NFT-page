@@ -6,10 +6,9 @@ import "splitting/dist/splitting.css";
 import "splitting/dist/splitting-cells.css";
 import Splitting from "splitting";
 
-import showcaseImageOne from '../assets/images/showcase1.png'
-import showcaseImageTwo from '../assets/images/showcase2.png'
-import showcaseImageThree from '../assets/images/showcase3.png'
-
+import showcaseImageOne from "../assets/images/showcase1.png";
+import showcaseImageTwo from "../assets/images/showcase2.png";
+import showcaseImageThree from "../assets/images/showcase3.png";
 
 var viewport = window.innerWidth;
 var mobile = 480;
@@ -35,8 +34,11 @@ const joinImage = document.querySelector(
   ".joinSection__container--image-container"
 );
 
-const showcaseDescriptions = Array.from(document.querySelectorAll("[data-splitting][data-effect-showcase-description]"))
-
+const showcaseDescriptions = Array.from(
+  document.querySelectorAll(
+    "[data-splitting][data-effect-showcase-description]"
+  )
+);
 
 const yearElement = document.querySelector("#year");
 yearElement.textContent = new Date().getFullYear().toString();
@@ -62,10 +64,10 @@ requestAnimationFrame(scrollFn);
 window.addEventListener("load", () => {
   document.body.style.position = "fixed";
   document.body.style.overflow = "hidden";
+  gsap.set(".container", { opacity: 0 });
 
   const promises = [];
   const loadImages = [showcaseImageOne, showcaseImageTwo, showcaseImageThree];
-
 
   loadImages.forEach((asset) => {
     const img = new Image();
@@ -87,7 +89,6 @@ window.addEventListener("load", () => {
   const counter = document.querySelector(".count");
   let loaded = 0;
 
-  gsap.set('.container',{opacity:0})
   loaderTl.fromTo(
     "#loadImage1",
     {
@@ -179,36 +180,22 @@ window.addEventListener("load", () => {
 
     if (loaded === 100) {
       clearInterval(interval);
-      loaderTl
-      .to(".preloader", {
+      loaderTl.to(".preloader", {
         y: "-100%",
         ease: "power3.inOut",
         duration: 0.5,
         display: "none",
         zIndex: 0,
-      })
-      .fromTo(
-        ".container",
-        {
-          display: "none",
-          opacity: 0,
+        onComplete: () => {
+          animations();
         },
-        {
-          display: "block",
-          opacity: 1,
-          ease: "none",
-          duration: 0.01,
-          onComplete: () => {
-            animations();
-          },
-        }
-      );
+      });
     }
   }, 25);
 });
 
 const animations = () => {
-  gsap.set('.container',{opacity:1})
+  gsap.set(".container", { opacity: 1 });
   document.body.style.position = "";
   document.body.style.overflow = "";
 
@@ -302,41 +289,41 @@ const animations = () => {
   );
 
   if (viewport > mobile) {
-  heroSectionTitle.forEach((title) => {
-    gsap.from(title.querySelectorAll(".word"), {
-      opacity: 0,
-      y: 20,
-      stagger: 0.05,
-      scrollTrigger: {
-        trigger: title,
-        start: "top bottom-=20%",
-        end: "center top+=20%",
-        scrub: true,
-      },
-    });
-  });
-
-  heroSectionText.forEach((text) => {
-    gsap.fromTo(
-      text.querySelectorAll(".word"),
-      {
-        "will-change": "opacity",
-        opacity: 0.1,
-      },
-      {
-        ease: "none",
-        opacity: 1,
+    heroSectionTitle.forEach((title) => {
+      gsap.from(title.querySelectorAll(".word"), {
+        opacity: 0,
+        y: 20,
         stagger: 0.05,
         scrollTrigger: {
-          trigger: text,
+          trigger: title,
           start: "top bottom-=20%",
           end: "center top+=20%",
           scrub: true,
         },
-      }
-    );
-  });
-}
+      });
+    });
+
+    heroSectionText.forEach((text) => {
+      gsap.fromTo(
+        text.querySelectorAll(".word"),
+        {
+          "will-change": "opacity",
+          opacity: 0.1,
+        },
+        {
+          ease: "none",
+          opacity: 1,
+          stagger: 0.05,
+          scrollTrigger: {
+            trigger: text,
+            start: "top bottom-=20%",
+            end: "center top+=20%",
+            scrub: true,
+          },
+        }
+      );
+    });
+  }
 
   if (viewport > mobile) {
     firstShowcaseTitle.forEach((text) => {
@@ -385,7 +372,7 @@ const animations = () => {
           },
         }
       );
-    })
+    });
 
     gsap.from(".faqSection__container--questions-container", {
       opacity: 0,
@@ -398,36 +385,41 @@ const animations = () => {
         scrub: true,
       },
     });
-    gsap.fromTo('.joinSection__container--image-container img',{ opacity: 0 },
-    {
-      y: 0,
-      opacity: 1,
-      duration: 1.5,
-      clipPath: "polygon(0 100%, 100% 100%, 100% 0, 0 0)",
-      scrollTrigger:{
-        trigger:'.joinSection__container--image-container img',
-        start: "top bottom-=20%",
-        end: "center top+=30%",
-        scrub:0.4
+    gsap.fromTo(
+      ".joinSection__container--image-container img",
+      { opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1.5,
+        clipPath: "polygon(0 100%, 100% 100%, 100% 0, 0 0)",
+        scrollTrigger: {
+          trigger: ".joinSection__container--image-container img",
+          start: "top bottom-=20%",
+          end: "center top+=30%",
+          scrub: 0.4,
+        },
       }
-    })
-    gsap.timeline({
-      scrollTrigger: {
-        trigger: '.characterSection__characters-container',
-        scrub: -1,
-        start: 'center +=600',
-        end: 'bottom +=300',
-        toggleActions: 'play pause resume restart',
-      }
-    }).to('#top-images', {
-      xPercent: -40 * 5,
-      duration: 20,
-      ease: "power3.inOut",
- }).to('#bottom-images', {
-  xPercent: -40 * 5,
-  duration: 20,
-  ease: "power3.inOut",
- })
-
+    );
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: ".characterSection__characters-container",
+          scrub: -1,
+          start: "center +=600",
+          end: "bottom +=300",
+          toggleActions: "play pause resume restart",
+        },
+      })
+      .to("#top-images", {
+        xPercent: -40 * 5,
+        duration: 20,
+        ease: "power3.inOut",
+      })
+      .to("#bottom-images", {
+        xPercent: -40 * 5,
+        duration: 20,
+        ease: "power3.inOut",
+      });
   }
 };
